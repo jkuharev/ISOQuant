@@ -1,0 +1,35 @@
+% PIR - Peptide Intensity Redistribution
+
+# Aim of algorithm
+As given by `Protein Inference` problem
+Identified proteins share peptides,
+
+# Shared Peptides Signal Intensity Redistribution Algorithm
+
+## Input data
+
+Identified ion signals annotated by peptide sequences and related to proteins, 
+as a table
+	- set identifier
+		- signal identifier
+		- peptide identifier
+		- protein identifier
+		- run identifier
+	- whole signal intensity
+
+## Output
+
+Portion of signal intensity for every petide in protein in run
+	- set identifier
+	- redistribution portion
+	
+## Steps
+
+a) determine a set of avialable `Sharing Grades` (G) over all peptides,
+	e.g. G = (1,2,3,4,7,9), with
+	- G[n]<G[n+1]: elements in G are sorted in increasing order
+	- G=1: unique peptides (proteospecific and razor peptides),
+	- G>1: peptides shared by G proteins
+b) redistributed intensity for peptides with G=1 equals to their whole signal intensity
+b) for every G>1 as N do
+	#. extract reference intensity for all proteins by peptides with N=1, e.g. Top3

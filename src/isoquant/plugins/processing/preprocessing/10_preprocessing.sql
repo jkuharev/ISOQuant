@@ -1,0 +1,3 @@
+-- @ correcting negative acquired nanograms values ... 
+-- ( Waters: why are aq_ngrams < 0 when aq_fmols = 0? )
+UPDATE protein SET aq_ngrams=0 WHERE aq_ngrams<0;

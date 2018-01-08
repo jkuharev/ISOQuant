@@ -1,0 +1,34 @@
+# 2012-04-13
+- clustering method DBSCAN implemented
+
+# 2012-03-02
+- maximum length of protein description extended to 512 charachters
+
+# 2012-02
+- minimum number of peptides per protein filter
+- auto reconnect to MySQL database on connection time out 
+- double precision mass_spectrum.ADCResponse
+
+# 2012-01-31
+
+- fixes:
+	- properly closing HTML report file
+	
+- features:
+	- process interrupting capability (kill-close)
+
+
+# 2011-03-11
+
+- no single processing steps available to end user
+- predefined processing pipelines (queues) 
+	that are batches of correctly ordered processing steps
+	
+	1. use PLGS Expression Analysis
+	2. use PLGS data but recluster emrts
+	3. use PLGS data but realign retention time and recluster emrts
+	
+- single page HTML report implemented
+- Excel report enhanced
+- Project Finder implemented
+- Configuration Editor implemented

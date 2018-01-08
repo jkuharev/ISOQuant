@@ -1,0 +1,121 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \usepackage{fontspec}
+  \ifxetex
+    \usepackage{xltxtra,xunicode}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+\usepackage{listings}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={Jörg Kuharev},
+            pdftitle={ISOQuant installation guide},
+            colorlinks=true,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\usepackage[left=2cm,right=1.5cm,top=1.5cm,bottom=1.5cm]{geometry}
+% \setlength{\parindent}{0.25in}
+\setlength{\parskip}{0.4cm}
+\pagestyle{plain}
+
+%\renewcommand{\figurename}{Abb.}
+%\renewcommand{\tablename}{Tab.}
+%\renewcommand{\listfigurename}{Abbildungsverzeichnis}
+%\renewcommand{\listtablename}{Tabellenverzeichnis}
+%\renewcommand{\refname}{Literaturverzeichnis}
+\renewcommand{\contentsname}{Table of contents}
+
+\renewcommand{\baselinestretch}{1.0}\normalsize
+
+\title{ISOQuant installation guide}
+\author{Jörg Kuharev}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+{
+\hypersetup{linkcolor=black}
+\tableofcontents
+}
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\clearpage
+
+\section{About installation guide}
+
+This document describes how to install ISOQuant and related software.
+Installation procedure may vary depending on your operating system
+environment. This document only handles generic cases for Windows, Linux
+and Mac OSX machines.
+
+\section{Software requirements}
+
+\begin{enumerate}
+\item
+  Java Virtual Machine (version 1.6 and newer or compatible) locally
+  installed as the execution environment as ISOQuant is a Java
+  application.
+\item
+  MySQL Server (version 5.1. and newer or compatible) locally installed
+  or available on local network.
+\item
+  Waters ProteinLynx Global Server (PLGS) (version 2.3. or newer)\\ in
+  fact, you don't need PLGS itself, however ISOQuant needs PLGS root
+  folder to be locally available (as a local folder or as a locally
+  mounted network path)
+\item
+  Web browser (Firefox, Safari, Opera, etc.) for viewing generated HTML
+  reports
+\item
+  Spreadsheet viewer (MS-Excel or compatible, e.g.~LibreOffice Calc) for
+  viewing generated XLS and CSV reports
+\end{enumerate}
+
+\section{Installation steps}
+
+\subsection{Windows}
+
+To simplify the installation process on Windows machines, we have
+created a Windows installation package -
+\lstinline!ISOQuant for Windows!. Packaged installation assistant will
+guide you through the installation process.
+
+\subsection{Mac OS X}
+
+To simplify the installation process on Macintosh machines, we have
+created a Mac OS X image file. The image file
+\lstinline!ISOQuant for Mac! contains the ISOQuant.app, which should be
+copied to a local folder, e.g. \lstinline!Applications! folder.
+
+\subsection{Linux, Unix and other OS}
+
+For advanced users, we have created a portable distribution package
+\lstinline!ISOQuant portable!, which may be used on any operating
+systems. The portable distribution is an archive containing all needed
+files. Use packaged launcher scripts \lstinline!isoquant4unix.sh! or
+\lstinline!isoquant4win.bat! to launch ISOQuant application.
+
+\end{document}

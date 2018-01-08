@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+   "http://www.w3.org/TR/html4/frameset.dtd">
+<HTML>
+<HEAD>
+<style>
+document, body
+{
+	padding: 0px;
+	margin: 20px;
+	font-family: sans-serif;
+}
+
+.protRunQuant, .protSampleQuant, .pepRunQuant, .parLog
+{
+	padding: 2px;
+	border: 2px black solid;
+	border-collapse: collapse;
+}
+
+.protRunQuant caption, .protSampleQuant caption, .pepRunQuant caption
+{
+	font-size: 120%;
+	color: darkblue;
+	text-align: left;
+}
+
+tr.odd
+{
+	background-color: #dddddd;
+}
+
+tr.even
+{
+	background-color: #eeeeee;
+}
+
+tr.captionRow .longCaption, tr.captionRow .caption
+{
+	border-bottom: 2px black solid;
+}
+
+th.caption, th.longCaption
+{
+	background-color: silver;
+	border: 2px black solid;
+}
+
+tr.even th.name, tr.odd th.name
+{
+	font-size: 10pt;
+	border-left: 2px black solid;
+	border-right: 2px black solid;
+}
+
+tr.odd:hover, tr.even:hover
+{
+    background:#CCFFCC;
+    color:#000000;
+}
+
+td.spacer{}
+
+td.number, td.firstNumber, td.text
+{
+	padding-left: 2px;
+	padding-right: 2px;
+	text-align: center;
+	color: black;
+	font-family: Monaco;
+	font-size: 9pt;
+	border-left: 1px white solid;
+}
+
+td.firstNumber
+{
+	border-left: 1px black solid;
+}
+
+td.text
+{
+	text-align: left;
+	color: black;
+	vertical-align: top;
+}
+
+.spaceBetweenTables
+{
+	margin-top: 100px;
+	margin-bottom: 20px;
+}
+
+a, a:visited
+{
+	text-decoration: none;
+	color: darkblue;
+}
+
+a:hover
+{
+	text-decoration: underline;
+	color: blue;
+}
+
+</style>
+<TITLE>%PROJECT_TITLE%</TITLE>
+</HEAD>
+<body>
+<h2>ISOQuant Quantification Report for %PROJECT_TITLE%</h2>
+<table>
+<tr>
+	<td><a href="%RUN_QUANTIFICATION_FILE%" target="main">[run overview]</a></td>
+	<td><a href="%SAMPLE_QUANTIFICATION_FILE%" target="main">[sample overview]</a></td>
+	<td><a href="%HISTORY_FILE%" target="main">[processing parameters]</a></td>
+</tr>
+</table>
+</body>
+</HTML>

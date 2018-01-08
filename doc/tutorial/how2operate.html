@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>ISOQuant usage guide</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,-css,html --> 
+<meta name="src" content="how2operate.tex" /> 
+<meta name="date" content="2012-12-12 15:07:00" /> 
+</head><body 
+>
+<div class="maketitle">
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+
+<h2 class="titleHead">ISOQuant usage guide</h2>
+<div class="author" ><span 
+class="ec-lmr-12">J</span><span 
+class="ec-lmr-12">örg Kuharev</span></div>
+<br />
+<div class="date" ><span 
+class="ec-lmr-12">December 12, 2012</span></div>
+</div>
+<h3 class="likesectionHead"><a 
+ id="x1-1000"></a>Table of contents</h3>
+<div class="tableofcontents">
+<span class="sectionToc" >1 <a 
+href="#x1-20001" >About usage guide</a></span>
+<br /><span class="sectionToc" >2 <a 
+href="#x1-30002" >Installation</a></span>
+<br /><span class="sectionToc" >3 <a 
+href="#x1-40003" >Purpose of ISOQuant</a></span>
+<br /><span class="sectionToc" >4 <a 
+href="#x1-50004" >Workflow</a></span>
+<br />&#x00A0;<span class="subsectionToc" >4.1 <a 
+href="#x1-60004.1" >Overview</a></span>
+<br />&#x00A0;<span class="subsectionToc" >4.2 <a 
+href="#x1-70004.2" >Steps</a></span>
+<br /><span class="sectionToc" >5 <a 
+href="#x1-80005" >Workflow steps explained</a></span>
+<br />&#x00A0;<span class="subsectionToc" >5.1 <a 
+href="#x1-90005.1" >PLGS root folder selection</a></span>
+<br />&#x00A0;<span class="subsectionToc" >5.2 <a 
+href="#x1-100005.2" >MySQL database connection</a></span>
+<br />&#x00A0;<span class="subsectionToc" >5.3 <a 
+href="#x1-110005.3" >Parameter configuration</a></span>
+<br />&#x00A0;<span class="subsectionToc" >5.4 <a 
+href="#x1-120005.4" >Project selection</a></span>
+<br />&#x00A0;<span class="subsectionToc" >5.5 <a 
+href="#x1-130005.5" >Processing type selection</a></span>
+<br />&#x00A0;<span class="subsectionToc" >5.6 <a 
+href="#x1-140005.6" >Project design or Expression Analysis selection</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsubsectionToc" >5.6.1 <a 
+href="#x1-150005.6.1" >Project design</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsubsectionToc" >5.6.2 <a 
+href="#x1-160005.6.2" >Expression Analysis selection</a></span>
+<br />&#x00A0;<span class="subsectionToc" >5.7 <a 
+href="#x1-170005.7" >Automated processing</a></span>
+                                                                                                  
+                                                                                                  
+<br />&#x00A0;<span class="subsectionToc" >5.8 <a 
+href="#x1-180005.8" >Report creation</a></span>
+</div>
+<div class="center" 
+>
+<!--l. 73--><p class="noindent" >
+</p><!--l. 73--><p class="noindent" >_________________________________________</p></div>
+                                                                                                  
+                                                                                                  
+<h3 class="sectionHead"><span class="titlemark">1   </span> <a 
+ id="x1-20001"></a>About usage guide</h3>
+<!--l. 79--><p class="noindent" >This document describes how to operate ISOQuant.
+</p><!--l. 81--><p class="noindent" >
+</p>
+<h3 class="sectionHead"><span class="titlemark">2   </span> <a 
+ id="x1-30002"></a>Installation</h3>
+<!--l. 83--><p class="noindent" >For installing ISOQuant application, please read <span class="lstinline">ISOQuant&#x00A0;installation&#x00A0;guide</span> and follow instructions.
+</p><!--l. 86--><p class="noindent" >
+</p>
+<h3 class="sectionHead"><span class="titlemark">3   </span> <a 
+ id="x1-40003"></a>Purpose of ISOQuant</h3>
+<!--l. 88--><p class="noindent" >The basic idea behind ISOQuant is to reduce data analysis time and also to ensure constant analysis quality by automating
+standard analysis steps applied to LC-MS based label-free proteomics data.
+</p><!--l. 92--><p class="noindent" >
+</p>
+<h3 class="sectionHead"><span class="titlemark">4   </span> <a 
+ id="x1-50004"></a>Workflow</h3>
+<!--l. 94--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">4.1   </span> <a 
+ id="x1-60004.1"></a>Overview</h4>
+<!--l. 96--><p class="noindent" >ISOQuant extracts preprocessed data from vendor software (Waters PLGS), and transfers extracted information into a
+relational MySQL database. Once data is transferred, ISOQuant applies a set of statistical analysis steps to it and reports
+analysis results in human readable, common file formats.
+</p><!--l. 102--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">4.2   </span> <a 
+ id="x1-70004.2"></a>Steps</h4>
+<!--l. 104--><p class="noindent" >Main workflow contains following steps:
+</p>
+                                                                                                  
+                                                                                                  
+     <ul class="itemize1">
+     <li class="itemize">PLGS root folder selection
+     </li>
+     <li class="itemize">MySQL database connection
+     </li>
+     <li class="itemize">Parameter configuration
+     </li>
+     <li class="itemize">Project selection
+     </li>
+     <li class="itemize">Processing type selection
+     </li>
+     <li class="itemize">Project design or Expression Analysis selection
+     </li>
+     <li class="itemize">Automated processing
+     </li>
+     <li class="itemize">Report creation</li></ul>
+<!--l. 125--><p class="noindent" >
+</p>
+<h3 class="sectionHead"><span class="titlemark">5   </span> <a 
+ id="x1-80005"></a>Workflow steps explained</h3>
+<!--l. 127--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">5.1   </span> <a 
+ id="x1-90005.1"></a>PLGS root folder selection</h4>
+<!--l. 129--><p class="noindent" >On the main view of ISOQuant, click on &#8216;select PLGS root folder&#8217; button (figure <a 
+href="#x1-90011">1<!--tex4ht:ref: pic:GUI --></a>, item 3) to initiate root folder selection.
+From the appearing folder selection dialog, choose the correct path to PLGS root folder, e.g.&#x00A0;C:\PLGS2.4\root. Do
+not select the PLGS folder, nor one of the project folders inside the root. When you have selected a valid root
+folder, ISOQuant explores contained projects and shows them as a list inside the <span class="lstinline">projects&#x00A0;in&#x00A0;PLGS&#x00A0;root&#x00A0;folder</span>
+container.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                                  
+                                                                                                  
+<a 
+ id="x1-90011"></a>
+                                                                                                  
+                                                                                                  
+
+<!--l. 140--><p class="noindent" ><img 
+src="assets/isoquant/pics/gui.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;1: </span><span  
+class="content">the main view of ISOQuant </span></div><!--tex4ht:label?: x1-90011 -->
+                                                                                                  
+                                                                                                  
+</div><hr class="endfigure" />
+<h4 class="subsectionHead"><span class="titlemark">5.2   </span> <a 
+ id="x1-100005.2"></a>MySQL database connection</h4>
+<!--l. 146--><p class="noindent" >On the main view of ISOQuant, click &#8216;connect database&#8217; button (figure <a 
+href="#x1-90011">1<!--tex4ht:ref: pic:GUI --></a>, item 4) and type requested accession data
+into appropriate fields on appearing dialog (figure <a 
+href="#x1-100012">2<!--tex4ht:ref: pic:dbDialog --></a>). Once ISOQuant has successfully connected to a MySQL
+database, it shows a list of previously imported projects inside the <span class="lstinline">projects&#x00A0;in&#x00A0;MySQL&#x00A0;database</span> (figure <a 
+href="#x1-90011">1<!--tex4ht:ref: pic:GUI --></a>, item 2)
+container.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                                  
+                                                                                                  
+<a 
+ id="x1-100012"></a>
+                                                                                                  
+                                                                                                  
+
+<!--l. 156--><p class="noindent" ><img 
+src="assets/isoquant/pics/db_dialog.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;2: </span><span  
+class="content">database connection dialog </span></div><!--tex4ht:label?: x1-100012 -->
+                                                                                                  
+                                                                                                  
+</div><hr class="endfigure" />
+<h4 class="subsectionHead"><span class="titlemark">5.3   </span> <a 
+ id="x1-110005.3"></a>Parameter configuration</h4>
+<!--l. 162--><p class="noindent" >The behavior and the appearance of ISOQuant as well as the attributes of its processing steps may be adapted by editing
+ISOQuant&#8217;s configuration file <span class="lstinline">isoquant.ini</span>. The easiest way to edit the configuration file is to use the built-in
+configuration editor (figure <a 
+href="#x1-110013">3<!--tex4ht:ref: pic:cfgEditor --></a>). Which is accessible from ISOQuant&#8217;s GUI by clicking <span class="lstinline">edit&#x00A0;configuration</span> button
+(figure <a 
+href="#x1-90011">1<!--tex4ht:ref: pic:GUI --></a>, item 7) . Please see <span class="lstinline">ISOQuant&#x00A0;configuration&#x00A0;guide</span> for detailed explanation of attributes and possible
+values.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                                  
+                                                                                                  
+<a 
+ id="x1-110013"></a>
+                                                                                                  
+                                                                                                  
+
+<!--l. 173--><p class="noindent" ><img 
+src="assets/isoquant/pics/configuration_editor.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;3: </span><span  
+class="content">built-in configuration editor </span></div><!--tex4ht:label?: x1-110013 -->
+                                                                                                  
+                                                                                                  
+</div><hr class="endfigure" />
+<h4 class="subsectionHead"><span class="titlemark">5.4   </span> <a 
+ id="x1-120005.4"></a>Project selection</h4>
+<!--l. 179--><p class="noindent" >Projects to be processed with ISOQuant may be selected from <span class="lstinline">projects&#x00A0;in&#x00A0;PLGS&#x00A0;root&#x00A0;folder</span> container (figure <a 
+href="#x1-90011">1<!--tex4ht:ref: pic:GUI --></a>,
+item 1) by left clicking them. Multiple projects could be selected by holding <span class="lstinline">Shift</span> or <span class="lstinline">Control</span> and left clicking
+them.
+</p><!--l. 185--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">5.5   </span> <a 
+ id="x1-130005.5"></a>Processing type selection</h4>
+<!--l. 187--><p class="noindent" >Right click on selected projects and choose <span class="lstinline">import&#x00A0;and&#x00A0;process</span> from appearing context menu (figure <a 
+href="#x1-130014">4<!--tex4ht:ref: pic:fsMenu --></a>). The appearing
+submenu offers a set of predefined processing pipelines for processing data in different ways depending on user choice and
+preprocessing status.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                                  
+                                                                                                  
+<a 
+ id="x1-130014"></a>
+                                                                                                  
+                                                                                                  
+
+<!--l. 195--><p class="noindent" ><img 
+src="assets/isoquant/pics/fs_context.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;4: </span><span  
+class="content">context menu for <span class="lstinline">projects&#x00A0;in&#x00A0;PLGS&#x00A0;root&#x00A0;folder</span> </span></div><!--tex4ht:label?: x1-130014 -->
+                                                                                                  
+                                                                                                  
+</div><hr class="endfigure" />
+<h4 class="subsectionHead"><span class="titlemark">5.6   </span> <a 
+ id="x1-140005.6"></a>Project design or Expression Analysis selection</h4>
+<!--l. 202--><p class="noindent" >
+</p>
+<h5 class="subsubsectionHead"><span class="titlemark">5.6.1   </span> <a 
+ id="x1-150005.6.1"></a>Project design</h5>
+<!--l. 204--><p class="noindent" >Project designer dialog (figure <a 
+href="#x1-150015">5<!--tex4ht:ref: pic:prjDesigner --></a>) shows for each selected project the original PLGS project structure and the targeted
+ISOQuant project structure, which is redefineable by drag-and-drop.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                                  
+                                                                                                  
+<a 
+ id="x1-150015"></a>
+                                                                                                  
+                                                                                                  
+
+<!--l. 210--><p class="noindent" ><img 
+src="assets/isoquant/pics/project_designer.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;5: </span><span  
+class="content">project designer </span></div><!--tex4ht:label?: x1-150015 -->
+                                                                                                  
+                                                                                                  
+</div><hr class="endfigure" />
+<h5 class="subsubsectionHead"><span class="titlemark">5.6.2   </span> <a 
+ id="x1-160005.6.2"></a>Expression Analysis selection</h5>
+<!--l. 216--><p class="noindent" >For each selected project every contained Expression Analysis may be selected to be imported and processed by ISOQuant by
+using <span class="lstinline">Expression&#x00A0;Analysis&#x00A0;Selector</span> (figure <a 
+href="#x1-160016">6<!--tex4ht:ref: pic:eaSelector --></a>).
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                                  
+                                                                                                  
+<a 
+ id="x1-160016"></a>
+                                                                                                  
+                                                                                                  
+
+<!--l. 222--><p class="noindent" ><img 
+src="assets/isoquant/pics/expression_analysis_selector.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;6: </span><span  
+class="content">Expression Analysis Selector </span></div><!--tex4ht:label?: x1-160016 -->
+                                                                                                  
+                                                                                                  
+</div><hr class="endfigure" />
+<h4 class="subsectionHead"><span class="titlemark">5.7   </span> <a 
+ id="x1-170005.7"></a>Automated processing</h4>
+<!--l. 228--><p class="noindent" >Automated processing of user chosen contents is initiated after project design or Expression Analysis selection is done.
+Depending on user choice, data is processed by different predefined analysis pipelines.
+</p><!--l. 232--><p class="noindent" >
+</p>
+<h4 class="subsectionHead"><span class="titlemark">5.8   </span> <a 
+ id="x1-180005.8"></a>Report creation</h4>
+<!--l. 234--><p class="noindent" >After successfully importing and processing data, newly processed projects appear inside <span class="lstinline">projects&#x00A0;in&#x00A0;MySQL&#x00A0;database</span>
+container (figure <a 
+href="#x1-90011">1<!--tex4ht:ref: pic:GUI --></a>, item 2). By selecting and right clicking on one of them, its processing results may be reported to a file
+(figure <a 
+href="#x1-180017">7<!--tex4ht:ref: pic:dbMenu --></a>). Different types of report are available offering different points of view at the analysis results.
+</p>
+<hr class="figure" /><div class="figure" 
+>
+                                                                                                  
+                                                                                                  
+<a 
+ id="x1-180017"></a>
+                                                                                                  
+                                                                                                  
+
+<!--l. 243--><p class="noindent" ><img 
+src="assets/isoquant/pics/db_context.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure&#x00A0;7: </span><span  
+class="content">context menu for <span class="lstinline">projects&#x00A0;in&#x00A0;ISOQuant&#x00A0;database</span> </span></div><!--tex4ht:label?: x1-180017 -->
+                                                                                                  
+                                                                                                  
+</div><hr class="endfigure" />
+ 
+</body></html> 
+
+                                                                                                  
+
+

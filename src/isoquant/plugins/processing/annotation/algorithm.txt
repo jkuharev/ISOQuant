@@ -1,0 +1,31 @@
+% Peptide Annotation with Protein Homology/Isoform Filtering
+% Jörg Kuharev
+% 2013-07-18
+
+# peptide filtering
+
+1. get peptides filtered by (write `peptides_passing_filter`):
+	1. peptide in project replication rate
+	2. peptide in project max identification score
+	3. peptide identification score
+	4. peptide identification type
+	5. peptide sequence length	
+2. map filtered peptides to emrts (write `emrts_annotated_by_filtered_peptides`)
+
+# peptide-to-protein relation
+
+1. map filtered peptides' sequences to protein ids (write `peptides_in_proteins`)
+2. clone `peptides_in_proteins` (write `peptides_in_proteins_temp`)
+3. recount source proteins for each peptide sequence (update `peptides_in_proteins`)
+4. backup `peptides_in_proteins` (write `peptides_in_proteins_before_homology_filtering`)
+
+# use only unique peptides
+This step can be executed as an alternative to Homology Filtering
+
+1. remove non-unique peptide sequences 
+	that are peptides originally mapped to more than one protein before filtering
+	(update `peptides_in_proteins_temp`)
+2. remove non-unique sequences
+	(update `peptides_in_proteins_temp`)
+	
+# homology filter

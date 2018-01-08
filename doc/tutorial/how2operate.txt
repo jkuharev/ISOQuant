@@ -1,0 +1,115 @@
+% ISOQuant usage guide
+% Jörg Kuharev
+% \today
+
+--------------------------------------------------------------------------------
+
+\clearpage
+
+# About usage guide
+This document describes how to operate ISOQuant.
+
+# Installation
+For installing ISOQuant application,
+please read `ISOQuant installation guide` and follow instructions.
+
+# Purpose of ISOQuant
+The basic idea behind ISOQuant is to reduce data analysis time and also 
+to ensure constant analysis quality by automating standard analysis steps
+applied to LC-MS based label-free proteomics data.
+
+# Workflow
+## Overview
+ISOQuant extracts preprocessed data from vendor software (Waters PLGS),
+and transfers extracted information into a relational MySQL database.
+Once data is transferred,
+ISOQuant applies a set of statistical analysis steps to it and reports
+analysis results in human readable, common file formats.
+
+## Steps
+Main workflow contains following steps:
+
+- PLGS root folder selection
+- MySQL database connection
+- Parameter configuration
+- Project selection
+- Processing type selection
+- Project design or Expression Analysis selection
+- Automated processing
+- Report creation
+
+# Workflow steps explained
+## PLGS root folder selection
+On the main view of ISOQuant, click on 'select PLGS root folder' button 
+(figure \ref{pic:GUI}, item 3) to initiate root folder selection.
+From the appearing folder selection dialog, choose the correct
+path to PLGS root folder, e.g. C:\\PLGS2.4\\root.
+Do not select the PLGS folder, nor one of the project folders inside the root.
+When you have selected a valid root folder, ISOQuant explores contained projects
+and shows them as a list inside the `projects in PLGS root folder` container.
+
+![the main view of ISOQuant \label{pic:GUI}](assets/isoquant/pics/gui.png)
+
+## MySQL database connection
+On the main view of ISOQuant, click 'connect database' button 
+(figure \ref{pic:GUI}, item 4) and type requested accession data into appropriate 
+fields on appearing dialog (figure \ref{pic:dbDialog}).
+Once ISOQuant has successfully connected to a MySQL database,
+it shows a list of previously imported projects inside the 
+`projects in MySQL database` (figure \ref{pic:GUI}, item 2) container.
+
+![database connection dialog \label{pic:dbDialog}](assets/isoquant/pics/db_dialog.png)
+
+## Parameter configuration
+The behavior and the appearance of ISOQuant as well as the attributes of its
+processing steps may be adapted by editing ISOQuant's configuration file
+`isoquant.ini`. The easiest way to edit the configuration file is to use the
+built-in configuration editor (figure \ref{pic:cfgEditor}).
+Which is accessible from ISOQuant's GUI by clicking `edit configuration` button (figure \ref{pic:GUI}, item 7) .
+Please see `ISOQuant configuration guide` for detailed explanation of 
+attributes and possible values.
+
+![built-in configuration editor \label{pic:cfgEditor}](assets/isoquant/pics/configuration_editor.png)
+
+## Project selection
+Projects to be processed with ISOQuant may be selected from
+`projects in PLGS root folder` container (figure \ref{pic:GUI}, item 1) by left clicking them.
+Multiple projects could be selected by holding `Shift` or `Control` and left 
+clicking them.
+
+## Processing type selection
+Right click on selected projects and choose `import and process` from appearing
+context menu (figure \ref{pic:fsMenu}). The appearing submenu offers a set of predefined processing pipelines
+for processing data in different ways depending on user choice and preprocessing status.
+
+![context menu for `projects in PLGS root folder` \label{pic:fsMenu}](assets/isoquant/pics/fs_context.png)
+
+## Project design or Expression Analysis selection
+### Project design
+Project designer dialog (figure \ref{pic:prjDesigner}) shows for each selected
+project the original PLGS project structure and the targeted ISOQuant project structure, 
+which is redefineable by drag-and-drop.
+
+![project designer \label{pic:prjDesigner}](assets/isoquant/pics/project_designer.png)
+
+### Expression Analysis selection
+For each selected project every contained Expression Analysis may be selected
+to be imported and processed by ISOQuant by using `Expression Analysis Selector`
+(figure \ref{pic:eaSelector}).
+
+![Expression Analysis Selector \label{pic:eaSelector}](assets/isoquant/pics/expression_analysis_selector.png)
+
+## Automated processing
+Automated processing of user chosen contents is initiated after project design
+or Expression Analysis selection is done. Depending on user choice,
+data is processed by different predefined analysis pipelines.
+
+## Report creation
+After successfully importing and processing data,
+newly processed projects appear inside `projects in MySQL database` container
+(figure \ref{pic:GUI}, item 2).
+By selecting and right clicking on one of them, its processing results may be
+reported to a file (figure \ref{pic:dbMenu}).
+Different types of report are available offering different points of view at the analysis results.
+
+![context menu for `projects in ISOQuant database` \label{pic:dbMenu}](assets/isoquant/pics/db_context.png)

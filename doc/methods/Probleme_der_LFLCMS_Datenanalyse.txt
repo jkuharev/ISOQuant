@@ -1,0 +1,241 @@
+% Probleme und Lösungsansätze im Zusammenhang mit der Auswertung labelfreier LC-MS Daten
+% Jörg Kuharev
+% \today
+\clearpage
+
+# Einordnung der Pipeline
+Analyse quantitativer lebelfreier LC-MS Daten erfolgt in 
+mehreren Schritten und unter Einsatz verschiedener Software.
+
+## Software: Waters MassLynx
+Waters MassLynx nimmt die Raw-Daten vom Instrument auf.
+Der erforderliche Speicherbedard hängt direkt von der Signal-Komplexität ab.
+Für Q-TOF Premier sind es etwa 1-5GB/h, oder im Durchschnitt 4GB für eine 2h LC-MS Messung.
+Für Synapt G2S hängt der Speicherbedarf noch zusätzlich davon ab,
+ob die Ion Mobility Fähigkeit genutzt wird, 
+und beträgt etwa 5-20GB/h, im Durchschnitt werden 20GB für eine 2h LC-MS Messung
+ohne Ion Mobility belegt.
+
+## Software: Waters PLGS
+Waters ProteinLynx Global Server (PLGS) wird für den Umgang mit der Raw-Daten
+eingesetzt.
+Wir überlassen PLGS
+
+#. Signalverarbeitung: Peak Detektion
+#. Datenbanksuche: Peptid- und Protein-Identification
+
+## Software: `ISOQuant`
+`ISOQuant` ist eine Eigenentwicklung für die Aufbereitung der mit 
+PLGS prozessierten Daten.
+Die Pipeline bildet u.a. folgende Verarbeitungsschritte ab:
+
+#. project design
+#. data transfer
+#. collecting statistical information about peptides and proteins
+#. retention time alignment
+#. peak clustering
+#. intensity normalization
+#. cluster annotation
+#. protein homology filtering
+#. peptide intensity redistribution
+#. protein quantification
+#. report creation
+
+# Projektstruktur
+Ein label-freies quantitatives LC-MS Experiment untersucht vergleichend
+mehrere Proteome.
+Jedes Proteom wird als eine unabhängige biologische Probe behandelt.
+Jede Probe wird zur statistischen Absicherung in technischen Replikaten 
+mehrfach untersucht.
+Die Struktur eines solchen Experimentes kann hierarchisch beschrieben werden.
+PLGS schreibt eine feste Projektstruktur vor.
+
+# Projekt- und Datenhierarchie in PLGS
+#. Project: allgemeine Projekt-bezogene Informationen
+#. Expression Analysis: Parameter und Beschreibung der Analyse
+#. Group: fasst mehrere Proben zusammen
+#. Sample: fasst mehrere Messungen zusammen
+#. Workflow: eine Messung, d.h. Peak-Liste sowie Peptid- und Proteinlisten
+
+zusätzlich gilt:
+
+- ohne Expression-Modul gibt es keine Gruppen,
+	bzw. eine `Default`-Group
+- Messungen werden standardmäßig zuerst der `Default`-Probe zugeordnet
+
+# Project Designer
+
+- Projektumorganisation - neue Projektstruktur
+- gleiche Hierarchieebenen wie PLGS Expression
+- Groups und Samples frei definierbar
+- Neuordnung vorhandener Workflows
+
+# Data Transfer
+
+- reorganisierte Workflows durchsuchen
+- Workflow-Daten in `MySQL` importieren
+- je Projekt ein Datenbankschema
+	- Reduktion der Datenmenge
+	- logische Abgrenzung
+- einfacher Zugriff
+- neue Workflow-übergreifende Möglichkeiten
+
+# Datenbankstruktur
+![ERM-Diagram of a project database \label{pic:iqdb}](pics/iqdb.png)
+
+# Collecting Statistical Information - Peptide
+- In wie vielen Samples wurde dieses Peptid identifiziert
+- In wie vielen Workflows wurde dieses Peptid identifiziert
+- Wie vielen Proteinen wurde dieses Peptid zugeordnet
+- Maximaler Score der Identifikation über alle Workflows
+- In wie vielen Workflows im aktuellen Sample wurde dieses Peptid identifiziert
+- Wie vielen Proteinen wurde dieses Peptid zugeordnet im aktuellen Sample
+- Maximaler Score der Identifikation über alle Workflows im aktuellen Sample
+
+# Collecting Statistical Information - Protein
+- In wie vielen Samples wurde dieses Protein identifiziert
+- In wie vielen Workflows wurde dieses Protein identifiziert
+- Wie viele Peptide können diesem Protein zugeordnet werden
+- Wie viele Peptide können ausschließlich diesem Protein zugeordnet werden
+- In wie vielen Workflows wurde dieses Protein identifiziert im aktuellen Sample
+- Wie viele Peptide können diesem Protein zugeordnet werden im aktuellen Sample
+- Wie viele Peptide können ausschließlich diesem Protein zugeordnet werden im aktuellen Sample
+
+# Fraction Time Shifting - Problem
+- zusammengeführte LC-Fraktionen (zu einem Workflow)
+- unabhängig erfasste Signale
+- gemeinsame Peak-Liste
+- Reihenfolge korrespondierender Signale ist inkonsistent
+- RT-Alignment geht nicht!
+
+# Fraction Time Shifting - Lösung
+- Peaks einzelner LC-Fraktion in getrennte Zeiträume verschieben
+- Signalreihenfolge konsistent
+- RT-Alignment geht!
+
+# Retention Time Alignment
+
+## Problem
+- LC instabil
+- korrespondierende Signale zu unterschiedlichen Zeiten
+- Zeitversatz ist nicht linear
+
+## Lösung
+- chronologisch konsistente Sequenz von übereinstimmenden Signalen suchen
+- Zeitverschiebungen zwischen Fundstellen linear interpolieren
+- Projektion der Retentionszeiten auf gemeinsame Referenz
+
+Die jeweiligen Sequenzen der Übereinstimmungen werden durch paarweises
+`Time Warping` der Messungen gegen die Referenzmessung gefunden.
+Der verwendete Algorithmus ist eine Abwandlung des `Dynamic Time Warping` (DTW)
+mit linearisierter Speicherkomplexität und gesteigerter Performance durch 
+parallel ausführbare Rekursion.
+
+## Ergebnis
+Referenz-Retentionszeiten der korrespondierenden Peaks ähneln einander.
+
+![Nicht-lineare Retentionszeitverschiebungen \label{pic:rtw}](pics/rtw.png)
+
+## Evaluierung
+DTW gewährleistet per Definition die mathematisch optimale Lösung,
+bzw. eine der möglichen optimalen Lösungen, falls mehrere vorhanden.
+Eine Evaluierung der Methode entfällt.
+Die Übertragbarkeit von DTW auf dieses Problem wurde beschrieben.
+
+# Peak Clustering
+Zur vergleichender Analyse müssen Signale, die von gleichen Peptid-Ionen stammen,
+identifiziert werden.
+
+## Problem
+Nicht alle Signale werden als ein Peptid erkannt,
+Manche Signale werden fehlannotiert.
+Eigenschaften korrespondierender Signale,
+wie (Referenz-)Retentionszeiten, Massen, Ionen-Mobilität stimmen nicht exakt
+überein und überlappen sich mit den Eigenschaften anderer Signale.
+Korrespondierende Signale müssen 
+in den Peak-Listen verschiedener Messungen gesucht und gruppiert werden.
+
+## Lösung
+Korrespondenz der Signale wird unabhängig ihrer Annotation mit Hilfe 
+geometrischer Clustering-Verfahren. Umgesetzte Algorithmen
+
+- Hierarchical-Non-Hierarchical Clustering:
+	hierarchisches Clustering mit Abbruch bei Erreichen einer 
+	vorgegebenen Entfernung.
+- DBSCAN:
+	dichte-basiertes Clustering
+
+# Intensity Normalization
+Die Annahme, dass die Mehrheit der Proteine 
+keine Unterschiede zwischen untersuchten Proteomen in der Expression aufweisen,
+können systematische Fehler der detektierten Mengen (Signalintensität) 
+beobachtet werden.
+
+## Problem
+Die beobachteten systematischen Fehler sind nicht-linear und
+haben i.d.R. mehrere ungeklärte Ursachen.
+
+## Lösung
+Signale jeder einzelnen Messung werden auf 
+multidimensionale systematische Fehler gegenüber dem 
+Durchschnitt der jeweiligen Signal-Cluster
+in Abhängigkeit von der Intensität, Retentionszeit, Masse sowie Ionenmobilität
+untersucht und korrigiert.
+
+# Cluster Annotation
+## Problem
+Weisen Signale innerhalb eines Clusters inkonsistente Annotationen auf,
+so wird die beste Annotation nach vorgegebenen Filterkriterien,
+wie Replikationsrate, Identifikationsscore, etc. bestimmt. 
+
+## Lösung
+Die beste Annotation wird zur Korrektur der Annotation 
+aller Signale des betroffenen Clusters verwendet.
+Damit werden Lücken in der Signalannotation geschlossen
+und in vielen Fällen eine vergleichende Quantifizierung der Peptide
+zwischen den Proben erst ermöglicht.
+
+# Protein Inference
+Ein Protein kann über mehrere Peptide identifiziert worden sein,
+gleichzeitig kann das gleiche Peptid mehreren Proteinen abstammen.
+Dies führt dazu, dass große Netzwerke der nicht-eindeutigen Identifikation 
+entstehen können.
+
+# Protein Inference - Protein Homology Filtering
+## Problem
+Homologe Proteine werden häufig durch nicht eindeutig zuzuordnenden (`shared`) 
+Peptide identifiziert. 
+In diesen Fällen gibt es keine Möglichkeit ein Protein aus einer solchen Familie 
+homologer Proteine stabil zu quantifizieren.
+
+#Lösung
+Wir identifizieren das Protein aus einer solchen Familie,
+das mit der höchsten Wahrscheinlichkeit identifiziert wurde
+und nehmen ferner an, dass alle `shared` Peptide aus diesem Protein stammen.
+Nur das jeweils wahrscheinlichste homologe Protein erscheint dann
+in der finalen Proteinquantifizierung.
+
+# Protein Inference - Peptide Intensity Redistribution
+Proteininferenz verbindet nicht nur homologe Proteine.
+Wird ein Peptid mehreren Proteinen zugeordnet,
+so bestimmt PLGS (Algorithmus nicht nachvollziehbar) welche Menge
+dieses Peptides welchem Protein zuzuordnen ist.
+Die Kenntnis über die Mengenverteilung eindeutig zugeordneter Peptide
+erlaubt Rückschlüsse auf die wahrscheinliche Menge von `shared`-Peptiden
+und ihre umverteilung.
+
+# Protein Quantification
+Liegen Peptidmengen und Zuordnungen zu Proteinen vor,
+können Rückschlüsse auf die ursprüngliche Proteinmengen gezogen werden.
+Wir setzen die TOP3-Methode für die Proteinquantifizierung ein^[Silva, J. C., 
+Gorenstein, M. V., Li, G.-Z., Vissers, J. P. C. & Geromanos, S. J. 
+Absolute quantification of proteins by LCMSE: a virtue of parallel MS acquisition. 
+Mol. Cell Proteomics 5, 144–156 (2006).].
+Sie basiert auf der Beobachtung, dass die Proteinmenge mit 
+der durchschnittlichen Menge der best-ioniesierenden Peptide dieses Proteins
+korreliert.
+
+# Report Creation
+Die Ausgabe erfolgt in Form von mehreren standardisierten
+Berichten, die unterschiedliche Aspekte der Daten darstellen
+und dadurch eine einfache Interpretation der Ergebnisse ermöglichen.

@@ -1,0 +1,81 @@
+<!-- START:ISOQuant license -->
+
+# ISOQuant BSD license
+
+	ISOQuant - integrated solution for LC-MS based label-free protein quantification
+	
+	Copyright (c) 2009 - 2018, JOERG KUHAREV
+	All rights reserved.
+	
+	Redistribution and use in source and binary forms, with or without
+	modification, are permitted provided that the following conditions are met:
+	1. Redistributions of source code must retain the above copyright
+	   notice, this list of conditions and the following disclaimer.
+	2. Redistributions in binary form must reproduce the above copyright
+	   notice, this list of conditions and the following disclaimer in the
+	   documentation and/or other materials provided with the distribution.
+	3. All advertising materials mentioning features or use of this software
+	   must display the following acknowledgement:
+	   This product includes software developed by JOERG KUHAREV.
+	4. Neither the name "ISOQuant" nor the
+	   names of its contributors may be used to endorse or promote products
+	   derived from this software without specific prior written permission.
+	
+	THIS SOFTWARE IS PROVIDED BY JOERG KUHAREV and STEFAN TENZER ''AS IS'' AND ANY
+	EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+	WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+	DISCLAIMED. IN NO EVENT SHALL JOERG KUHAREV BE LIABLE FOR ANY
+	DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+	(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+	LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+	ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+	(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+	SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+# 3rd-party license information
+
+	ISOQuant uses lots of 3rd-party libraries to avoid reinventing the wheel.
+	Please find the corresponding license information inside the included JAR files.
+	Following external libraries are used in ISOQuant and are included in "lib" folder:
+	
+- activation-1.1.jar
+- chardet-1.0.jar
+- com.springsource.antlr-2.7.7.jar
+- com.springsource.org.apache.commons.io-1.4.0.jar
+- com.springsource.org.apache.commons.logging-1.1.1.jar
+- com.springsource.org.apache.log4j-1.2.15.jar
+- commons-math3-3.2.jar
+- cpdetector-1.0.7.jar
+- dom4j-1.6.1.jar
+- Jama-1.0.3.jar
+- jargs-1.0.jar
+- jaxb-api-2.1.jar
+- jaxb-impl-2.1.7.jar
+- jaxb-xjc-2.1.7.jar
+- jboss-jsfunit-microdeployer-1.3.0.Final.jar
+- jdom-1.1.3.jar
+- jmzidentml-1.1.3-sources.jar
+- jmzidentml-1.1.3.jar
+- jmztab-modular-converters-3.0.0.jar
+- jmztab-modular-converters-3.0.2-20141217.110031-4.jar
+- jmztab-modular-model-3.0.0.jar
+- jmztab-modular-model-3.0.2-20141217.110022-4.jar
+- jmztab-modular-util-3.0.0.jar
+- jmztab-modular-util-3.0.2-20141217.110028-4.jar
+- jsix_bin.jar
+- log4j-1.2.17.jar
+- mariadb-java-client-1.5.7.jar
+- opencsv-3.7.jar
+- poi-3.8-20120326.jar
+- poi-ooxml-3.8-20120326.jar
+- poi-ooxml-schemas-3.8-20120326.jar
+- pride-utilities-0.1.22.jar
+- PtPlot5.8.jar
+- stax-api-1.0-2.jar
+- stax-api-1.0.1.jar
+- tagsoup-1.2.1.jar
+- xmlbeans-2.3.0.jar
+- xstream-1.4.8.jar
+- xxindex-0.11.jar
+
+<!-- END:ISOQuant license -->

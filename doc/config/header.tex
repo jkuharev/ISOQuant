@@ -1,0 +1,60 @@
+% \setlength{\parindent}{0.25in}
+\usepackage[a4paper,left=30mm,right=25mm, top=25mm, bottom=20mm]{geometry}
+\setlength{\parskip}{0cm}
+% \usepackage{footmisc}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+	\lhead{}
+	\chead{}
+	\rhead{\small \leftmark}
+	\lfoot{}
+	\cfoot{\thepage}
+	\rfoot{}
+	\renewcommand{\headrulewidth}{0.4pt}
+	\renewcommand{\footrulewidth}{0pt}%0.4pt}
+	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+\pagestyle{plain}
+
+% \renewcommand\footnotelayout{\fontsize{10}{12}\selectfont}
+
+% \onehalfspacing
+%\linespread{1.5}
+\usepackage{setspace}
+\setstretch{1.5}
+
+\usepackage[perpage,flushmargin]{footmisc} 
+
+%\let\origfootnote\footnote
+%\renewcommand{\footnote}[1]{%
+%   \renewcommand\footnotesize\small%
+%   \origfootnote{#1}%
+%}
+
+\usepackage[font=small,format=plain,labelfont=bf,up,textfont=up]{caption}
+
+%\renewcommand{\familydefault}{\sfdefault}
+
+%\renewcommand{\figurename}{Abb.}
+%\renewcommand{\tablename}{Tab.}
+%\renewcommand{\listfigurename}{Abbildungsverzeichnis}
+%\renewcommand{\listtablename}{Tabellenverzeichnis}
+%\renewcommand{\refname}{Literaturverzeichnis}
+%\renewcommand{\contentsname}{Inhaltsverzeichnis}
+
+% Preventing figures from appearing on a page by themselves.
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+\renewcommand{\bottomfraction}{.8}
+
+% rechten Rand nicht ¸berschreiten
+\sloppy
+% Penalties: http://www.jr-x.de/publikationen/latex/tipps/zeilenumbruch.html
+% Strafe f¸r Silbentrennung
+\hyphenpenalty=10000
+% Strafe f¸r Paragraphanfang vor Seitenumbruch
+\clubpenalty=1000
+% Strafe f¸r Paragraphende nach Seitenumbruch
+\widowpenalty=1000
+

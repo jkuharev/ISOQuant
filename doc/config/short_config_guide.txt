@@ -1,0 +1,171 @@
+% Short ISOQuant configuration guide
+% Jörg Kuharev
+% \today
+
+# ISOQuant Workflow
+
+![ISOQuant workflow \label{iqFlow}](pic/isoquant_workflow.pdf)
+
+\clearpage
+
+# Configuration parameters
+Every block of contiguous config parameters is commented with usage and parameter effect notes
+in the order as the parameters appear in the config file in alphabetic order by their full name.
+Note: the alphabetic order differs from the chronological processing workflow shown in figure!
+
+- Peptide FDR Filter level, Peak Cluster Annotation restriction and Protein Homology Filter activation
+
+	~~~~~~~
+	process.annotation.peptide.maxFPR=0.01
+	process.annotation.peptide.maxSequencesPerEMRTCluster=1
+	process.annotation.protein.resolveHomology=true
+	~~~~~~~
+
+- Peak Clustering, minimum neighbor peaks in a cluster, neighborhood radius in ion mobility,
+	mass and rt and clustering performance in CPU cores to utilize
+	
+	~~~~~~~
+	process.emrt.clustering.dbscan.minNeighborCount=2
+	process.emrt.clustering.distance.unit.drift.bin=2.0
+	process.emrt.clustering.distance.unit.mass.ppm=6.0
+	process.emrt.clustering.distance.unit.time.min=0.2
+	process.emrt.clustering.maxProcesses=8
+	~~~~~~~
+	
+- Minimum peaks criteria to use for rt alignment and clustering
+
+	~~~~~~~
+	process.emrt.minIntensity=1000
+	process.emrt.minMass=500
+	~~~~~~~
+	
+- Retention Time Alignment
+	- matching peaks properties
+	
+		~~~~~~~	
+		process.emrt.rt.alignment.match.maxDeltaDriftTime=2.0
+		process.emrt.rt.alignment.match.maxDeltaMass.ppm=10.0
+		~~~~~~~
+			
+	- LC-MS runs to align at the same time, good estimation is quarter of available CPU cores
+
+		~~~~~~~
+		process.emrt.rt.alignment.maxProcesses=8
+		~~~~~~~
+	
+	- limit peaks for alignment by properties
+
+		~~~~~~~
+		process.emrt.rt.alignment.minIntensity=1000
+		process.emrt.rt.alignment.minMass=800.0
+		~~~~~~~
+	
+	- One of the LC-MS runs is the reference, to which every other run is aligned.
+		The reference could potentially contain some rt bias.
+		If activated, we minimize global rt fluctuations over all runs to the average.
+	
+		~~~~~~~
+		process.emrt.rt.alignment.normalizeReferenceTime=false
+		~~~~~~~
+
+
+- Peptide Identification Filter properties, only peptides passing filter criteria are used for annotation
+	
+	~~~~~~~
+	process.identification.peptide.acceptType.IN_SOURCE=false
+	process.identification.peptide.acceptType.MISSING_CLEAVAGE=false
+	process.identification.peptide.acceptType.NEUTRAL_LOSS_H20=false
+	process.identification.peptide.acceptType.NEUTRAL_LOSS_NH3=false
+	process.identification.peptide.acceptType.PEP_FRAG_2=false
+	process.identification.peptide.acceptType.PTM=false
+	process.identification.peptide.acceptType.VAR_MOD=false
+	process.identification.peptide.minOverallMaxScore=0.0
+	process.identification.peptide.minReplicationRate=2.0
+	process.identification.peptide.minScore=0.0
+	process.identification.peptide.minSequenceLength=6
+	~~~~~~~
+	
+- Peak Intensity Normalization
+	
+	~~~~~~~
+	process.normalization.lowess.bandwidth=0.3
+	process.normalization.minIntensity=3000
+	process.normalization.orderSequence=XPIR
+	~~~~~~~
+	
+- Data Preparation, we can completely remove peptides from database flaged by PLGS.
+	Once removed, you can not recover them!
+
+	~~~~~~~
+	process.peptide.deplete.CURATED_0=false
+	process.peptide.deplete.PEP_FRAG_2=false
+	~~~~~~~
+	
+- Protein Quantification and FDR Filter
+	
+	~~~~~~~
+	process.quantification.absolute.standard.entry=ENO1_YEAST
+	process.quantification.absolute.standard.fmol=50.0
+	process.quantification.absolute.standard.used=true
+	process.quantification.maxProteinFPR=0.01
+	process.quantification.minPeptidesPerProtein=1
+	~~~~~~~
+	
+- Peptide Quantification Filter
+	
+	~~~~~~~
+	process.quantification.peptide.acceptType.IN_SOURCE=false
+	process.quantification.peptide.acceptType.MISSING_CLEAVAGE=false
+	process.quantification.peptide.acceptType.NEUTRAL_LOSS_H20=false
+	process.quantification.peptide.acceptType.NEUTRAL_LOSS_NH3=false
+	process.quantification.peptide.acceptType.PEP_FRAG_2=false
+	process.quantification.peptide.acceptType.PTM=false
+	process.quantification.peptide.acceptType.VAR_MOD=false
+	process.quantification.peptide.minMaxScorePerCluster=0.0
+	~~~~~~~
+	
+- Protein Quantification, how many peptides to use for quantification
+
+	~~~~~~~
+	process.quantification.topx.degree=3
+	~~~~~~~	
+	
+- App and user interface settings
+	
+	~~~~~~~
+	setup.config.dir=d:\\isoquant\\app
+	setup.db.autoLoad=true
+	setup.db.host=localhost
+	setup.db.pass=
+	setup.db.user=root
+	setup.log.dir=log
+	setup.log.perSession=true
+	setup.plgs.root.autoLoad=false
+	setup.plgs.root.dir=D:\\plgs\\projects\\root
+	setup.plgs.root.showEACount=true
+	setup.plgs.root.showFSSize=false
+	setup.report.csv.columnSeparator=','
+	setup.report.csv.decimalPoint='.'
+	setup.report.csv.textQuote='"'
+	setup.report.dir=d:\\isoquant\\reports
+	setup.report.mzidentml.DBNCBITaxID=
+	setup.report.mzidentml.DBOrganismScientificName=
+	setup.report.mzidentml.DBversion=
+	setup.report.mzidentml.researcherFirstName=John
+	setup.report.mzidentml.researcherLastName=Doe
+	setup.report.mzidentml.researcherOrganization=Uni-Mainz
+	setup.report.xls.showAbsQuantFMOL=false
+	setup.report.xls.showAbsQuantFMOLUG=false
+	setup.report.xls.showAbsQuantNG=false
+	setup.report.xls.showAbsQuantPPM=true
+	setup.report.xls.showAllProteins=false
+	setup.report.xls.showPLGSQuant=false
+	setup.report.xls.showRTAlignment=false
+	setup.ui.captureConsoleMessages=true
+	setup.ui.iconScaleFactor=1.0
+	setup.ui.location.left=425
+	setup.ui.location.top=22
+	setup.ui.promptForExit=false
+	setup.ui.size.height=808
+	setup.ui.size.width=1022
+	~~~~~~~

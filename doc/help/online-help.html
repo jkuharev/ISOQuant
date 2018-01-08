@@ -1,0 +1,2584 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>
+ISOQuant 1.6
+Help pages</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<!-- html --> 
+<meta name="src" content="help.tex"> 
+<link rel="stylesheet" type="text/css" href="help.css"> 
+</head><body 
+>
+<div class="maketitle">
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+
+<h2 class="titleHead"><br />
+ISOQuant 1.6<br />
+Help pages</h2>
+<div class="author" ><span 
+class="ec-lmr-12">J</span><span 
+class="ec-lmr-12">örg Kuharev, Pedro Navarro and Stefan Tenzer</span></div>
+<br />
+<div class="date" ><span 
+class="ec-lmr-12">September 29, 2016</span><br />
+<span 
+class="ec-lmbx-12">NOTE:</span><br />
+<span 
+class="ec-lmr-12">Some contents of this document are not</span><br />
+<span 
+class="ec-lmr-12">aligned with the current software version.</span><br />
+<span 
+class="ec-lmr-12">An update is coming soon </span><span 
+class="ec-lmr-12">&#x2026;</span>
+                                                                                                  
+                                                                                                  
+</div>
+</div>
+<h3 class="likesectionHead"><a 
+ id="x1-1000"></a>Table of contents</h3>
+<div class="tableofcontents">
+<span class="sectionToc" >1 <a 
+href="#x1-20001" id="QQ2-1-2">Description</a></span>
+<br />&#x00A0;<span class="subsectionToc" >1.1 <a 
+href="#x1-30001.1" id="QQ2-1-3">About ISOQuant</a></span>
+<br />&#x00A0;<span class="subsectionToc" >1.2 <a 
+href="#x1-40001.2" id="QQ2-1-4">Citing ISOQuant</a></span>
+<br />&#x00A0;<span class="subsectionToc" >1.3 <a 
+href="#x1-50001.3" id="QQ2-1-5">ISOQuant workflow</a></span>
+<br />&#x00A0;<span class="subsectionToc" >1.4 <a 
+href="#x1-60001.4" id="QQ2-1-7">Known problems</a></span>
+<br /><span class="sectionToc" >2 <a 
+href="#x1-70002" id="QQ2-1-8">Program requirements</a></span>
+<br /><span class="sectionToc" >3 <a 
+href="#x1-80003" id="QQ2-1-9">Data requirements</a></span>
+<br />&#x00A0;<span class="subsectionToc" >3.1 <a 
+href="#x1-90003.1" id="QQ2-1-10">Rawdata type</a></span>
+<br />&#x00A0;<span class="subsectionToc" >3.2 <a 
+href="#x1-100003.2" id="QQ2-1-11">Database searches</a></span>
+<br />&#x00A0;<span class="subsectionToc" >3.3 <a 
+href="#x1-110003.3" id="QQ2-1-12">Project design</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsubsectionToc" >3.3.1 <a 
+href="#x1-120003.3.1" id="QQ2-1-13">Expression analysis</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsubsectionToc" >3.3.2 <a 
+href="#x1-130003.3.2" id="QQ2-1-14">ISOQuant Project Designer</a></span>
+<br />&#x00A0;<span class="subsectionToc" >3.4 <a 
+href="#x1-140003.4" id="QQ2-1-15">Peak detection/alignment/clustering</a></span>
+<br /><span class="sectionToc" >4 <a 
+href="#x1-150004" id="QQ2-1-16">GUI and control elements</a></span>
+<br />&#x00A0;<span class="subsectionToc" >4.1 <a 
+href="#x1-160004.1" id="QQ2-1-17">Main view</a></span>
+<br />&#x00A0;<span class="subsectionToc" >4.2 <a 
+href="#x1-170004.2" id="QQ2-1-19">Project Finder</a></span>
+<br />&#x00A0;<span class="subsectionToc" >4.3 <a 
+href="#x1-180004.3" id="QQ2-1-21">Context menu for PLGS projects in file system</a></span>
+<br />&#x00A0;<span class="subsectionToc" >4.4 <a 
+href="#x1-190004.4" id="QQ2-1-23">Context menu for projects in database</a></span>
+<br />&#x00A0;<span class="subsectionToc" >4.5 <a 
+href="#x1-200004.5" id="QQ2-1-25">Expression Analysis Selector</a></span>
+<br />&#x00A0;<span class="subsectionToc" >4.6 <a 
+href="#x1-210004.6" id="QQ2-1-27">Project Designer </a></span>
+<br /><span class="sectionToc" >5 <a 
+href="#x1-220005" id="QQ2-1-29">ISOQuant configuration</a></span>
+<br /><span class="sectionToc" >6 <a 
+href="#x1-230006" id="QQ2-1-30">Configuration guide</a></span>
+<br />&#x00A0;<span class="subsectionToc" >6.1 <a 
+href="#x1-240006.1" id="QQ2-1-31">EMRT cluster annotation</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsubsectionToc" >6.1.1 <a 
+href="#x1-250006.1.1" id="QQ2-1-32">Peptide identification filter</a></span>
+                                                                                                  
+                                                                                                  
+<br />&#x00A0;&#x00A0;<span class="subsubsectionToc" >6.1.2 <a 
+href="#x1-270006.1.2" id="QQ2-1-34">Annotation mode</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsubsectionToc" >6.1.3 <a 
+href="#x1-280006.1.3" id="QQ2-1-35">Annotation conflict filter</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsubsectionToc" >6.1.4 <a 
+href="#x1-290006.1.4" id="QQ2-1-36">Homology / isoform and FDR filtering</a></span>
+<br />&#x00A0;<span class="subsectionToc" >6.2 <a 
+href="#x1-300006.2" id="QQ2-1-37">Data preprocessing</a></span>
+<br />&#x00A0;<span class="subsectionToc" >6.3 <a 
+href="#x1-310006.3" id="QQ2-1-38">EMRT table creation</a></span>
+<br />&#x00A0;<span class="subsectionToc" >6.4 <a 
+href="#x1-320006.4" id="QQ2-1-39">Retention time alignment</a></span>
+<br />&#x00A0;<span class="subsectionToc" >6.5 <a 
+href="#x1-330006.5" id="QQ2-1-40">EMRT clustering</a></span>
+<br />&#x00A0;<span class="subsectionToc" >6.6 <a 
+href="#x1-340006.6" id="QQ2-1-41">Peak intensity normalization</a></span>
+<br />&#x00A0;<span class="subsectionToc" >6.7 <a 
+href="#x1-350006.7" id="QQ2-1-42">Protein quantification</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsubsectionToc" >6.7.1 <a 
+href="#x1-360006.7.1" id="QQ2-1-43">Peptide filtering</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsubsectionToc" >6.7.2 <a 
+href="#x1-370006.7.2" id="QQ2-1-44">Protein quantification setting</a></span>
+<br />&#x00A0;<span class="subsectionToc" >6.8 <a 
+href="#x1-380006.8" id="QQ2-1-45">Application behavior</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsubsectionToc" >6.8.1 <a 
+href="#x1-390006.8.1" id="QQ2-1-46">User interface</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsubsectionToc" >6.8.2 <a 
+href="#x1-400006.8.2" id="QQ2-1-47">Data source</a></span>
+<br />&#x00A0;&#x00A0;<span class="subsubsectionToc" >6.8.3 <a 
+href="#x1-410006.8.3" id="QQ2-1-48">Report</a></span>
+<br /><span class="sectionToc" >7 <a 
+href="#x1-420007" id="QQ2-1-49">End-user license agreement</a></span>
+<br />&#x00A0;<span class="subsectionToc" >7.1 <a 
+href="#x1-430007.1" id="QQ2-1-50">External components</a></span>
+<br />&#x00A0;<span class="subsectionToc" >7.2 <a 
+href="#x1-440007.2" id="QQ2-1-51">ISOQuant license agreement </a></span>
+<br />&#x00A0;<span class="subsectionToc" >7.3 <a 
+href="#x1-450007.3" id="QQ2-1-52">Disclaimer in plain language</a></span>
+<br /><span class="sectionToc" >8 <a 
+href="#x1-460008" id="QQ2-1-53">About developers</a></span>
+<br /><span class="sectionToc" ><a 
+href="#Q1-1-55">References</a></span>
+</div>
+                                                                                                  
+                                                                                                  
+<h3 class="sectionHead"><span class="titlemark">1   </span> <a 
+ id="x1-20001"></a>Description</h3>
+<!--l. 143--><p class="noindent" >ISOQuant is an academically developed, integrated bioinformatics pipeline for in-depth evaluation and statistical data analysis
+of data-independent acquisition (MS<sup class="textsuperscript"><span 
+class="ec-lmr-9">E</span></sup> and IMS-MS<sup class="textsuperscript"><span 
+class="ec-lmr-9">E</span></sup>) based label-free quantitative proteomics that improves data reliability
+and quality by application of well-established and novel analysis methods.
+<!--l. 150--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a 
+ id="x1-30001.1"></a>About ISOQuant</h4>
+<!--l. 152--><p class="noindent" >One of the main bottlenecks in the evaluation of label-free quantitative proteomics experiments is the often cumbersome data
+export for in-depth data evaluation and analysis. Data-independent, alternate scanning LC-MS (MS<sup class="textsuperscript"><span 
+class="ec-lmr-9">E</span></sup>/HDMS<sup class="textsuperscript"><span 
+class="ec-lmr-9">E</span></sup>/UDMS<sup class="textsuperscript"><span 
+class="ec-lmr-9">E</span></sup>)
+peptide fragmentation data can currently only be processed by Waters PLGS software (and by recently introduced Progenesis
+QI for Proteomics (Nonlineare Dynamics / Waters)).<br 
+class="newline" />PLGS performs absolute quantification only on a run-to-run level, it does not afford absolute quantification of protein isoforms
+and label-free relative quantification of peptides and proteins based on clustered accurate mass-retention time pairs on a
+complete experiment basis.<br 
+class="newline" />The bioinformatics pipeline ISOQuant directly accesses xml files from the PLGS root folder and browses for relevant data from
+a label-free Expression Analysis project (quantification analyses, sample descriptions, search results) for fully
+automated import into a MySQL database. EMRTs are subjected to multidimensional LOWESS-based intensity
+normalization and annotated by matching exact masses and aligned retention times of detected features with
+highest scoring peptide identification data from associated workflows. Based on the annotated cluster table,
+ISOQuant calculates absolute in-sample amounts with an integrated protein isoform quantification method,
+utilizing average intensities of proteotypic peptides for the partitioning of non-unique peptide intensities between
+protein isoforms. All data is stored in a local MySQL based database that can be queried directly by experienced
+users.
+<!--l. 179--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a 
+ id="x1-40001.2"></a>Citing ISOQuant</h4>
+<!--l. 181--><p class="noindent" >ISOQuant has been developed since 2009. We introduced the basic principles of ISOQuant analysis to the community as part of
+a Nature Methods articles 2014 (Distler et al. 2014).
+<!--l. 185-->
+   <div class="lstlisting" id="listing-1"><span class="label"><a 
+ id="x1-4001r1"></a></span><span 
+class="ec-lmtt-9">Distler</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">U</span><span 
+class="ec-lmtt-9">.,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Kuharev</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">J</span><span 
+class="ec-lmtt-9">.,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Navarro</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">P</span><span 
+class="ec-lmtt-9">.,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Levin</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Y</span><span 
+class="ec-lmtt-9">.,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Schild</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">H</span><span 
+class="ec-lmtt-9">.,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&amp;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Tenzer</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">S</span><span 
+class="ec-lmtt-9">.</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4002r2"></a></span><span 
+class="ec-lmtt-9">(2014).</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Drift</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">time</span><span 
+class="ec-lmtt-9">-</span><span 
+class="ec-lmtt-9">specific</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">collision</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">energies</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">enable</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">deep</span><span 
+class="ec-lmtt-9">-</span><span 
+class="ec-lmtt-9">coverage</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4003r3"></a></span><span 
+class="ec-lmtt-9">data</span><span 
+class="ec-lmtt-9">-</span><span 
+class="ec-lmtt-9">independent</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">acquisition</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">proteomics</span><span 
+class="ec-lmtt-9">.</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4004r4"></a></span><span 
+class="ec-lmtt-9">Nature</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Methods</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">11(2),</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#8211;</span><span 
+class="ec-lmtt-9">167170.</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">http</span><span 
+class="ec-lmtt-9">://</span><span 
+class="ec-lmtt-9">doi</span><span 
+class="ec-lmtt-9">.</span><span 
+class="ec-lmtt-9">org</span><span 
+class="ec-lmtt-9">/10.1038/</span><span 
+class="ec-lmtt-9">nmeth</span><span 
+class="ec-lmtt-9">.2767</span>
+   
+</div>
+<!--l. 192--><p class="noindent" >Please cite the mentioned publication, when using ISOQuant to produce publication data or referencing to ISOQuant in other
+context. Use the following BibTeX code to import into the reference manager of your choice:
+<!--l. 197-->
+   <div class="lstlisting" id="listing-2"><span class="label"><a 
+ id="x1-4005r1"></a></span><span 
+class="ec-lmtt-9">@article</span><span 
+class="ec-lmtt-9">{</span><span 
+class="ec-lmtt-9">distler_drift_2014</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4006r2"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">title</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">{</span><span 
+class="ec-lmtt-9">Drift</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">time</span><span 
+class="ec-lmtt-9">-</span><span 
+class="ec-lmtt-9">specific</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">collision</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">energies</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">enable</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4007r3"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">deep</span><span 
+class="ec-lmtt-9">-</span><span 
+class="ec-lmtt-9">coverage</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">data</span><span 
+class="ec-lmtt-9">-</span><span 
+class="ec-lmtt-9">independent</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">acquisition</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">proteomics</span><span 
+class="ec-lmtt-9">},</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4008r4"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">author</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">{</span><span 
+class="ec-lmtt-9">Distler</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Ute</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">and</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Kuharev</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">J</span><span 
+class="ec-lmtt-9">ö</span><span 
+class="ec-lmtt-9">rg</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">and</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Navarro</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Pedro</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4009r5"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">and</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Levin</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Yishai</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">and</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Schild</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Hansj</span><span 
+class="ec-lmtt-9">ö</span><span 
+class="ec-lmtt-9">rg</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">and</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Tenzer</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Stefan</span><span 
+class="ec-lmtt-9">},</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4010r6"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">journal</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">{</span><span 
+class="ec-lmtt-9">Nature</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Methods</span><span 
+class="ec-lmtt-9">},</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4011r7"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">volume</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">{11},</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4012r8"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">issn</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">{1548-7091},</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4013r9"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">url</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">{</span><span 
+class="ec-lmtt-9">http</span><span 
+class="ec-lmtt-9">://</span><span 
+class="ec-lmtt-9">www</span><span 
+class="ec-lmtt-9">.</span><span 
+class="ec-lmtt-9">nature</span><span 
+class="ec-lmtt-9">.</span><span 
+class="ec-lmtt-9">com</span><span 
+class="ec-lmtt-9">/</span><span 
+class="ec-lmtt-9">nmeth</span><span 
+class="ec-lmtt-9">/</span><span 
+class="ec-lmtt-9">journal</span><span 
+class="ec-lmtt-9">/</span><span 
+class="ec-lmtt-9">v11</span><span 
+class="ec-lmtt-9">/</span><span 
+class="ec-lmtt-9">n2</span><span 
+class="ec-lmtt-9">/</span><span 
+class="ec-lmtt-9">full</span><span 
+class="ec-lmtt-9">/</span><span 
+class="ec-lmtt-9">nmeth</span><span 
+class="ec-lmtt-9">.2767.</span><span 
+class="ec-lmtt-9">html</span><span 
+class="ec-lmtt-9">},</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4014r10"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">doi</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">{10.1038/</span><span 
+class="ec-lmtt-9">nmeth</span><span 
+class="ec-lmtt-9">.2767},</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4015r11"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">month</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">feb</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4016r12"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">year</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">{2014},</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4017r13"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">pages</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">{167--170}</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-4018r14"></a></span><span 
+class="ec-lmtt-9">}</span>
+   
+</div>
+                                                                                                  
+                                                                                                  
+<h4 class="subsectionHead"><span class="titlemark">1.3   </span> <a 
+ id="x1-50001.3"></a>ISOQuant workflow</h4>
+<!--l. 218--><p class="noindent" >The data analysis workflow (see fig. <a 
+href="#x1-50011">1<!--tex4ht:ref: pic:iqWorkflow --></a>) consists of raw data preprocessing using vendor software PLGS and the downstream
+analysis using ISOQuant. In our data analysis workflow, PLGS is used for the initial signal processing as well as for peptide and
+protein identification. Before automatically importing PLGS results into a relational database (MySQL), ISOQuant allows to
+change the structure of underlying PLGS project and in this way to redesign the label-free experiment. The ISOQuant data
+analysis workflow is composed of multiple dedicated algorithms. At different stages of analysis, data is filtered on peptide and
+protein level based on user defined criteria (identification score and type, sequence length, replication rate, FDR threshold, etc.)
+to ensure a constant level of high data quality for all runs in the project. The retention time alignment procedure
+corrects non-linear retention time distortions between LC-MS runs of the experiment (Podwojski et al. 2009).
+To group corresponding features from different runs of the experiment, exact mass and retention time pairs
+(EMRT) extended by ion mobility values are evaluated using the density based clustering algorithm DBSCAN
+(Ester et al. 1996). Resulting feature clusters are annotated by evaluation of consent peptide identifications and
+identification probabilities. The feature cluster annotation approach transfers peptide identifications between runs and
+reduces missing values increasing the reproducibility of data analysis. Resolving ambiguous peptides-in-proteins
+networks, the protein homology filtering algorithm reduces side effects of the protein inference problem (Nesvizhskii
+and Aebersold 2005). The multi-dimensional feature intensity normalization algorithm reduces the effects of
+technical variance between independently acquired LC-MS runs of the experiment and increases the reproducibility
+of quantification. Finally, ISOQuant uses a derivative of the Top3 method (Silva et al. 2006) for the absolute
+protein quantification and exports analysis results to multiple output formats for subsequent interpretation.
+Alternatively to ISOQuant, the commercial software Progenesis QI for proteomics (Nonlinear Dynamics / Waters)
+or the freely available R-package synapter (Bond et al. 2013) could also be used to analyze MS<sup class="textsuperscript"><span 
+class="ec-lmr-9">E</span></sup> data. In a
+recent study, we tested Progenesis QIP, synapter and ISOQuant for the performance of protein identification
+and the label-free quantification based on the analysis a complex metaproteome sample set (Kuharev et al.
+2015).
+<!--l. 257--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                                                  
+                                                                                                  
+<a 
+ id="x1-50011"></a>
+                                                                                                  
+                                                                                                  
+
+<!--l. 259--><p class="noindent" ><img 
+src="assets/isoquant/pics/isoquant_workflow.png" alt="PIC"  
+>
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;1: </span><span  
+class="content">The workflow of ISOQuant analysis </span></div><!--tex4ht:label?: x1-50011 -->
+                                                                                                  
+                                                                                                  
+<!--l. 261--><p class="noindent" ></div><hr class="endfigure">
+                                                                                                  
+                                                                                                  
+<h4 class="subsectionHead"><span class="titlemark">1.4   </span> <a 
+ id="x1-60001.4"></a>Known problems</h4>
+     <ul class="itemize1">
+     <li class="itemize">On some <span 
+class="ec-lmbx-10">Windows Vista </span>or <span 
+class="ec-lmbx-10">Window 7 </span>machines ISOQuant can not write its configuration file. In this case
+     you have to execute ISOQuant with administrative privileges or correct file system permissions for ISOQuant
+     installation folder. This is not an ISOQuant issue, sometimes Windows messes up file system permissions by
+     using different and inconsistent user privileges at different time points.
+     </li>
+     <li class="itemize">Analysis of high complexity datasets may take a while.
+     </li>
+     <li class="itemize">Importing (and analyzing) large projects or runs of high complexity may cause out of memory errors, make
+     sure your PC has enough memory and assign more Heap-Space to Java Virtual Machine for running ISOQuant
+     Application.
+     </li>
+     <li class="itemize">ISOQuant may fail to import and process data if some PLGS project files are broken.
+     </li>
+     <li class="itemize">Running MySQL on Mac OSX machines significantly decreases the performance of ISOQuant. This is a known
+     problem of MySQL not of ISOQuant. Use Windows or Linux machines and/or install MariaDB instead of MySQL
+     for better performance.</li></ul>
+                                                                                                  
+                                                                                                  
+<h3 class="sectionHead"><span class="titlemark">2   </span> <a 
+ id="x1-70002"></a>Program requirements</h3>
+<!--l. 297--><p class="noindent" >ISOQuant will only work properly if the system for running ISOQuant meets following requirements.
+     <ul class="itemize1">
+     <li class="itemize">Operating System: Windows, Mac OS X or Linux
+     </li>
+     <li class="itemize">PLGS root folder with projects containing processed MS<sup class="textsuperscript"><span 
+class="ec-lmr-9">E</span></sup>/HDMS<sup class="textsuperscript"><span 
+class="ec-lmr-9">E</span></sup>/UDMS<sup class="textsuperscript"><span 
+class="ec-lmr-9">E</span></sup> data is accessible (tested PLGS
+     versions: 2.3/2.4/2.5/3.0)
+     </li>
+     <li class="itemize">at least 3GB RAM
+     </li>
+     <li class="itemize">Java Runtime Environment version 1.6.0 (or newer) is installed and works properly
+     </li>
+     <li class="itemize">MySQL Server 5.1 (or newer) is installed and running on local machine or network. (tested MySQL versions: 5.1
+     - 5.5)
+     </li>
+     <li class="itemize">MySQL configuration file options for heap and temporary tables have large values as shown in following listing.
+     In some cases it may be useful also to increase the size of MySQL thread stack.
+     <!--l. 320-->
+        <div class="lstlisting" id="listing-3"><span class="label"><a 
+ id="x1-7001r1"></a></span><span 
+class="ec-lmtt-9">max_heap_table_size</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">2048</span><span 
+class="ec-lmtt-9">M</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7002r2"></a></span><span 
+class="ec-lmtt-9">tmp_table_size</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">2048</span><span 
+class="ec-lmtt-9">M</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7003r3"></a></span><span 
+class="ec-lmtt-9">thread_stack</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">256</span><span 
+class="ec-lmtt-9">K</span>
+        
+     </div>
+     <!--l. 326--><p class="noindent" >Depending on your operating system and MySQL-Version the configuration file is named either my.ini or my.cnf and its
+     location may vary.
+     <!--l. 329--><p class="noindent" >Following listing shows an example of MySQL configuration section [mysqld] working for us on MacOSX
+     10.6.8 Snow Leopard running MySQL Server from XAMPP 1.7.3, the configuration file is located in
+     <span class="lstinline"></span><span 
+class="ec-lmtt-9">/</span><span 
+class="ec-lmtt-9">Applications</span><span 
+class="ec-lmtt-9">/</span><span 
+class="ec-lmtt-9">XAMPP</span><span 
+class="ec-lmtt-9">/</span><span 
+class="ec-lmtt-9">xamppfiles</span><span 
+class="ec-lmtt-9">/</span><span 
+class="ec-lmtt-9">etc</span><span 
+class="ec-lmtt-9">/</span><span 
+class="ec-lmtt-9">my</span><span 
+class="ec-lmtt-9">.</span><span 
+class="ec-lmtt-9">cnf</span>
+     <!--l. 334-->
+        <div class="lstlisting" id="listing-4"><span class="label"><a 
+ id="x1-7004r1"></a></span><span 
+class="ec-lmtt-9">[</span><span 
+class="ec-lmtt-9">mysqld</span><span 
+class="ec-lmtt-9">]</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7005r2"></a></span><span 
+class="ec-lmtt-9">port</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">3306</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7006r3"></a></span><span 
+class="ec-lmtt-9">socket</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">/</span><span 
+class="ec-lmtt-9">Applications</span><span 
+class="ec-lmtt-9">/</span><span 
+class="ec-lmtt-9">XAMPP</span><span 
+class="ec-lmtt-9">/</span><span 
+class="ec-lmtt-9">xamppfiles</span><span 
+class="ec-lmtt-9">/</span><span 
+class="ec-lmtt-9">var</span><span 
+class="ec-lmtt-9">/</span><span 
+class="ec-lmtt-9">mysql</span><span 
+class="ec-lmtt-9">/</span><span 
+class="ec-lmtt-9">mysql</span><span 
+class="ec-lmtt-9">.</span><span 
+class="ec-lmtt-9">sock</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7007r4"></a></span><span 
+class="ec-lmtt-9">skip</span><span 
+class="ec-lmtt-9">-</span><span 
+class="ec-lmtt-9">locking</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7008r5"></a></span><span 
+class="ec-lmtt-9">key_buffer</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">128</span><span 
+class="ec-lmtt-9">M</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7009r6"></a></span><span 
+class="ec-lmtt-9">max_allowed_packet</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">16</span><span 
+class="ec-lmtt-9">M</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7010r7"></a></span><span 
+class="ec-lmtt-9">table_cache</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">128</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7011r8"></a></span><span 
+class="ec-lmtt-9">sort_buffer_size</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">32</span><span 
+class="ec-lmtt-9">M</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7012r9"></a></span><span 
+class="ec-lmtt-9">read_buffer_size</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">8</span><span 
+class="ec-lmtt-9">M</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7013r10"></a></span><span 
+class="ec-lmtt-9">read_rnd_buffer_size</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">8</span><span 
+class="ec-lmtt-9">M</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7014r11"></a></span><span 
+class="ec-lmtt-9">net_buffer_length</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">64</span><span 
+class="ec-lmtt-9">K</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7015r12"></a></span><span 
+class="ec-lmtt-9">thread_stack</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">256</span><span 
+class="ec-lmtt-9">K</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7016r13"></a></span><span 
+class="ec-lmtt-9">myisam_sort_buffer_size</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">32</span><span 
+class="ec-lmtt-9">M</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7017r14"></a></span><span 
+class="ec-lmtt-9">tmpdir</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">/</span><span 
+class="ec-lmtt-9">Applications</span><span 
+class="ec-lmtt-9">/</span><span 
+class="ec-lmtt-9">XAMPP</span><span 
+class="ec-lmtt-9">/</span><span 
+class="ec-lmtt-9">xamppfiles</span><span 
+class="ec-lmtt-9">/</span><span 
+class="ec-lmtt-9">temp</span><span 
+class="ec-lmtt-9">/</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7018r15"></a></span><span 
+class="ec-lmtt-9">max_heap_table_size</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">2048</span><span 
+class="ec-lmtt-9">M</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7019r16"></a></span><span 
+class="ec-lmtt-9">tmp_table_size</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">2048</span><span 
+class="ec-lmtt-9">M</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7020r17"></a></span><span 
+class="ec-lmtt-9">sync_frm</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">0</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-7021r18"></a></span><span 
+class="ec-lmtt-9">skip</span><span 
+class="ec-lmtt-9">-</span><span 
+class="ec-lmtt-9">sync</span><span 
+class="ec-lmtt-9">-</span><span 
+class="ec-lmtt-9">frm</span><span 
+class="ec-lmtt-9">=</span><span 
+class="ec-lmtt-9">OFF</span>
+        
+     </div>
+     <!--l. 355--><p class="noindent" >Do not forget to restart MySQL after editing its configuration!</li></ul>
+<!--l. 358--><p class="noindent" >Expert note:<br 
+class="newline" />If you get some &#8220;out of memory&#8221; errors while running ISOQuant please make sure you start the application by giving Java
+Virtual Machine a chance to have enough memory space by command line options, e.g.
+<!--l. 363-->
+   <div class="lstlisting" id="listing-5"><span class="label"><a 
+ id="x1-7022r1"></a></span><span 
+class="ec-lmtt-9">java</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">-</span><span 
+class="ec-lmtt-9">Xms256m</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">-</span><span 
+class="ec-lmtt-9">Xmx2G</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">-</span><span 
+class="ec-lmtt-9">jar</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">ISOQuant</span><span 
+class="ec-lmtt-9">.</span><span 
+class="ec-lmtt-9">jar</span>
+   
+                                                                                                  
+                                                                                                  
+</div>
+<!--l. 367--><p class="noindent" >this command will assign up to 2 GBs (parameter <span 
+class="ec-lmbx-10">-Xmx2G</span>) RAM to the virtual machine and run the ISOQuant application.
+For some very complex datasets, it may be useful to increase the <span 
+class="ec-lmbx-10">-Xmx </span>value e.g. <span 
+class="ec-lmbx-10">-Xmx48G </span>to allow the virtual machine to
+access 48 GBs of RAM.
+                                                                                                  
+                                                                                                  
+<h3 class="sectionHead"><span class="titlemark">3   </span> <a 
+ id="x1-80003"></a>Data requirements</h3>
+<!--l. 377--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">3.1   </span> <a 
+ id="x1-90003.1"></a>Rawdata type</h4>
+<!--l. 379--><p class="noindent" >ISOQuant has been developed for Waters QTOF LC-MSE and Waters Synapt G2/G2-S LC-MS<sup class="textsuperscript"><span 
+class="ec-lmr-9">E</span></sup>/HDMS<sup class="textsuperscript"><span 
+class="ec-lmr-9">E</span></sup>/UDMS<sup class="textsuperscript"><span 
+class="ec-lmr-9">E</span></sup>
+instrument data. At this time, only 1D-UPLC data is fully supported, 2D-UPLC support will be included in later
+releases.
+<!--l. 385--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">3.2   </span> <a 
+ id="x1-100003.2"></a>Database searches</h4>
+<!--l. 387--><p class="noindent" >At the moment, ISOQuant can only process Ion Accounting workflows (MS<sup class="textsuperscript"><span 
+class="ec-lmr-9">E</span></sup>/HDMS<sup class="textsuperscript"><span 
+class="ec-lmr-9">E</span></sup>/UDMS<sup class="textsuperscript"><span 
+class="ec-lmr-9">E</span></sup>-data). Classical DDA-Type
+experiments are not yet supported.
+<!--l. 391--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">3.3   </span> <a 
+ id="x1-110003.3"></a>Project design</h4>
+<!--l. 393--><p class="noindent" >There are two different ways to use ISOQuant either as an extension to PLGS Expression Analysis or completely replacing
+it.
+<!--l. 396--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">3.3.1   </span> <a 
+ id="x1-120003.3.1"></a>Expression analysis</h5>
+<!--l. 398--><p class="noindent" >You can use your experiment design given by running PLGS Expression analysis. As a prerequisite for this approach, a
+complete expression analysis of multiple samples and replicates is required. In PLGS, please select autonormalization of
+samples for generating EMRT and protein tables. Both EMRT and Protein tables have to be created during
+the expression analysis. Each expression analysis within a PLGS project can be selected during processing in
+ISOQuant. ISOQuant will create separate databases for storing the data of every single processed expression
+analysis.
+<!--l. 409--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">3.3.2   </span> <a 
+ id="x1-130003.3.2"></a>ISOQuant Project Designer</h5>
+<!--l. 411--><p class="noindent" >As an alternative to the PLGS Expression analysis, you can use the simple and efficient built-in Project Designer described in
+section <a 
+href="#x1-210004.6">4.6<!--tex4ht:ref: sec:ProjectDesigner --></a>.
+                                                                                                  
+                                                                                                  
+<!--l. 416--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">3.4   </span> <a 
+ id="x1-140003.4"></a>Peak detection/alignment/clustering</h4>
+<!--l. 418--><p class="noindent" >ISOQuant is based on peak detection, alignment and clustering of data performed by PLGS. We are aware of some peak
+splitting/alignment/clustering issues in PLGS. Therefore, we have have spent a lot of time to develop own methods for these
+tasks. You can either keep EMRT alignment/clustering results or let ISOQuant do the complete analysis. For details see future
+publications.
+                                                                                                  
+                                                                                                  
+<h3 class="sectionHead"><span class="titlemark">4   </span> <a 
+ id="x1-150004"></a>GUI and control elements</h3>
+<!--l. 429--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">4.1   </span> <a 
+ id="x1-160004.1"></a>Main view</h4>
+<!--l. 431--><p class="noindent" >Figure <a 
+href="#x1-160192">2<!--tex4ht:ref: pic:mainView --></a> shows the main view of ISOQuant. User interaction is applied by following control elements:
+<!--l. 434--><p class="noindent" >
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x1-16002x1">List of projects found in PLGS root folder
+     </li>
+     <li 
+  class="enumerate" id="x1-16004x2">List of projects from ISOQuant database
+     </li>
+     <li 
+  class="enumerate" id="x1-16006x3">Button choose PLGS root folder
+     </li>
+     <li 
+  class="enumerate" id="x1-16008x4">Button choose database
+     </li>
+     <li 
+  class="enumerate" id="x1-16010x5">Button restore project from file
+     </li>
+     <li 
+  class="enumerate" id="x1-16012x6">Button find projects
+     </li>
+     <li 
+  class="enumerate" id="x1-16014x7">Button edit configuration
+     </li>
+     <li 
+  class="enumerate" id="x1-16016x8">Button show help window
+     </li>
+     <li 
+  class="enumerate" id="x1-16018x9">Button shutdown application</li></ol>
+<!--l. 457--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                                                  
+                                                                                                  
+<a 
+ id="x1-160192"></a>
+                                                                                                  
+                                                                                                  
+
+<!--l. 459--><p class="noindent" ><img 
+src="assets/isoquant/pics/gui.png" alt="PIC"  
+>
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;2: </span><span  
+class="content">the main view of ISOQuant </span></div><!--tex4ht:label?: x1-160192 -->
+                                                                                                  
+                                                                                                  
+<!--l. 461--><p class="noindent" ></div><hr class="endfigure">
+                                                                                                  
+                                                                                                  
+<h4 class="subsectionHead"><span class="titlemark">4.2   </span> <a 
+ id="x1-170004.2"></a>Project Finder</h4>
+<!--l. 467--><p class="noindent" >The Project Finder window as shown in figure <a 
+href="#x1-170013">3<!--tex4ht:ref: pic:FinderWindow --></a> makes possible to search projects lists for projects by substrings of project
+titles and regular expressions matching to them. In case your search string matches to one or multiple projects the Project
+Finder will mark these projects by selecting them in both file system and database projects lists. The Project
+Finder window can be accessed by clicking the button find projects from the tool bar on the main application
+window.
+<!--l. 476--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                                                  
+                                                                                                  
+<a 
+ id="x1-170013"></a>
+                                                                                                  
+                                                                                                  
+
+<!--l. 478--><p class="noindent" ><img 
+src="assets/isoquant/pics/project_finder.png" alt="PIC"  
+>
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;3: </span><span  
+class="content">Project Finder window </span></div><!--tex4ht:label?: x1-170013 -->
+                                                                                                  
+                                                                                                  
+<!--l. 480--><p class="noindent" ></div><hr class="endfigure">
+                                                                                                  
+                                                                                                  
+<h4 class="subsectionHead"><span class="titlemark">4.3   </span> <a 
+ id="x1-180004.3"></a>Context menu for PLGS projects in file system</h4>
+<!--l. 487--><p class="noindent" >Advanced options for each project from PLGS root folder are available from a context menu like shown in figure
+<a 
+href="#x1-180074">4<!--tex4ht:ref: pic:FSContextMenu --></a>:
+<!--l. 490--><p class="noindent" >
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x1-18002x1">find in database<br 
+class="newline" />finds selected projects in the list of projects from database by comparing their titles and select them if such
+     projects exist.
+     </li>
+     <li 
+  class="enumerate" id="x1-18004x2">about project<br 
+class="newline" />shows additional information about selected projects.
+     </li>
+     <li 
+  class="enumerate" id="x1-18006x3">import and process<br 
+class="newline" />allows  to  select  one  of  predefined  processing  queues  and  starts  processing  selected  projects  using  selected
+     processing queue.</li></ol>
+<!--l. 506--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                                                  
+                                                                                                  
+<a 
+ id="x1-180074"></a>
+                                                                                                  
+                                                                                                  
+
+<!--l. 508--><p class="noindent" ><img 
+src="assets/isoquant/pics/fs_context.png" alt="PIC"  
+>
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;4: </span><span  
+class="content">Context menu for PLGS projects in file system </span></div><!--tex4ht:label?: x1-180074 -->
+                                                                                                  
+                                                                                                  
+<!--l. 511--><p class="noindent" ></div><hr class="endfigure">
+                                                                                                  
+                                                                                                  
+<h4 class="subsectionHead"><span class="titlemark">4.4   </span> <a 
+ id="x1-190004.4"></a>Context menu for projects in database</h4>
+<!--l. 518--><p class="noindent" >Advanced options for each project from database are available from a context menu like shown in figure <a 
+href="#x1-190155">5<!--tex4ht:ref: pic:DBContextMenu --></a>
+<!--l. 521--><p class="noindent" >
+     <ol  class="enumerate1" >
+     <li 
+  class="enumerate" id="x1-19002x1">find in file system<br 
+class="newline" />finds selected projects in the list of projects from file system by comparing their titles and select them if such
+     projects exist.
+     </li>
+     <li 
+  class="enumerate" id="x1-19004x2">show info<br 
+class="newline" />shows additional information about selected projects.
+     </li>
+     <li 
+  class="enumerate" id="x1-19006x3">rename project<br 
+class="newline" />rename selected projects.
+     </li>
+     <li 
+  class="enumerate" id="x1-19008x4">reprocess<br 
+class="newline" />reprocess a project starting from user selected processing stage. All needed subsequent processing steps are
+     automatically applied.
+     </li>
+     <li 
+  class="enumerate" id="x1-19010x5">create report<br 
+class="newline" />generate on of implemented report types.
+     </li>
+     <li 
+  class="enumerate" id="x1-19012x6">export to file<br 
+class="newline" />export selected projects from database to (backup) files which can be imported by other ISOQuant instances.
+     </li>
+     <li 
+  class="enumerate" id="x1-19014x7">remove from database<br 
+class="newline" />removes selected projects from database.</li></ol>
+<!--l. 550--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                                                  
+                                                                                                  
+<a 
+ id="x1-190155"></a>
+                                                                                                  
+                                                                                                  
+
+<!--l. 552--><p class="noindent" ><img 
+src="assets/isoquant/pics/db_context.png" alt="PIC"  
+>
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;5: </span><span  
+class="content">Context menu for already processed projects </span></div><!--tex4ht:label?: x1-190155 -->
+                                                                                                  
+                                                                                                  
+<!--l. 555--><p class="noindent" ></div><hr class="endfigure">
+<!--l. 557--><p class="noindent" ><span 
+class="ec-lmbx-10">Note: </span>We continue to develop and improve ISOQuant. The context menus could look different in different software releases.
+The elements in context menus are subject of change, their number and order may vary.
+                                                                                                  
+                                                                                                  
+<h4 class="subsectionHead"><span class="titlemark">4.5   </span> <a 
+ id="x1-200004.5"></a>Expression Analysis Selector</h4>
+<!--l. 566--><p class="noindent" >In some cases a single PLGS project contains multiple defined Expression Analyses. Some processing queues work with project
+structures provided by PLGS Expression Analyses. These queues start with the selection of contained expression analyses for
+each selected project. The selection of expression analyses is done within the Expression Analysis Selector window as shown in
+figure <a 
+href="#x1-200016">6<!--tex4ht:ref: pic:EASelector --></a> by activating the checkboxes from the column include for each Expression Analysis to be processed. The Expression
+Analysis Selector shows each previously selected project in its own tab pane. ISOQuant generates a separate database for each
+selected Expression Analysis.
+<!--l. 577--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                                                  
+                                                                                                  
+<a 
+ id="x1-200016"></a>
+                                                                                                  
+                                                                                                  
+
+<!--l. 579--><p class="noindent" ><img 
+src="assets/isoquant/pics/expression_analysis_selector.png" alt="PIC"  
+>
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;6: </span><span  
+class="content">Expression Analysis Selector </span></div><!--tex4ht:label?: x1-200016 -->
+                                                                                                  
+                                                                                                  
+<!--l. 581--><p class="noindent" ></div><hr class="endfigure">
+                                                                                                  
+                                                                                                  
+<h4 class="subsectionHead"><span class="titlemark">4.6   </span> <a 
+ id="x1-210004.6"></a>Project Designer </h4>
+<!--l. 588--><p class="noindent" >ISOQuant allows to create user defined project structures and then to process these newly structured project data. User
+defined project structures are created using the Project Designer as shown in figure <a 
+href="#x1-210017">7<!--tex4ht:ref: pic:ProjectDesigner --></a>. The Project Designer
+window shows the PLGS project structure on the left and the user defined structure on the right. A new project
+structure is created by drag and drop based moving of workflows, samples or groups between left and right
+structure trees. Additionally to drag and drop actions, right click context menus are available on the right side
+of Project Designer enabling editing and removing of selected structure elements. On the top of window you
+can switch between Project Designer panes to restructure each previously selected PLGS project. Processing
+of designed project can be initiated by clicking the button Ok on the bottom of window or can be aborted
+by clicking the Cancel button. While processing ISOQuant generates a separate database for each designed
+project.
+<!--l. 604--><p class="noindent" ><hr class="figure"><div class="figure" 
+>
+                                                                                                  
+                                                                                                  
+<a 
+ id="x1-210017"></a>
+                                                                                                  
+                                                                                                  
+
+<!--l. 606--><p class="noindent" ><img 
+src="assets/isoquant/pics/project_designer.png" alt="PIC"  
+>
+<br /> <div class="caption" 
+><span class="id">Figure&#x00A0;7: </span><span  
+class="content">Project Designer </span></div><!--tex4ht:label?: x1-210017 -->
+                                                                                                  
+                                                                                                  
+<!--l. 608--><p class="noindent" ></div><hr class="endfigure">
+<h3 class="sectionHead"><span class="titlemark">5   </span> <a 
+ id="x1-220005"></a>ISOQuant configuration</h3>
+<!--l. 612--><p class="noindent" >ISOQuant stores parameters for program behavior and data processing algorithms in a single configuration file named
+<span 
+class="ec-lmbx-10">isoquant.ini</span>. This configuration file is located in the folder you have installed ISOQuant to. For resetting parameters to
+default values just close ISOQuant then delete or rename the configuration file (or single parameter lines) and start ISOQuant
+again. If no configuration file can be found on application start a new one will be created using default parameter
+values.<br 
+class="newline" /><span 
+class="ec-lmbx-10">Do not change the configuration file unless you know what you do!</span>
+<!--l. 623--><p class="noindent" >ISOQuant configuration can be edited from ISOQuant Configuration Editor accessible from graphical user interface.
+Configuration Editor allows to edit parameters and also export/import configuration settings to/from files.
+<!--l. 628--><p class="noindent" >Two configuration files are provided with ISOQuant installation packages:
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="ec-lmbx-10">isoquant_high_confidence.ini </span>example configuration file for high confidence quantitative analyses
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">isoquant_maxID.ini </span>example configuration file for discovery proteomics experiments</li></ul>
+<!--l. 641--><p class="noindent" >These files can be imported into ISOQuant from Configuration Editor or manually copied to <span 
+class="ec-lmbx-10">isoquant.ini</span>
+file.
+                                                                                                  
+                                                                                                  
+<h3 class="sectionHead"><span class="titlemark">6   </span> <a 
+ id="x1-230006"></a>Configuration guide</h3>
+<!--l. 648--><p class="noindent" >This chapter lists and describes the main set of available parameters. The number of parameters, their names and the
+behavior of application caused by parameters are subjects of change because we actively work on improving
+ISOQuant and underlying methods. Thus the following list of parameters may be incomplete and/or up to
+date.
+<!--l. 654--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">6.1   </span> <a 
+ id="x1-240006.1"></a>EMRT cluster annotation</h4>
+<!--l. 657--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">6.1.1   </span> <a 
+ id="x1-250006.1.1"></a>Peptide identification filter</h5>
+<!--l. 659--><p class="noindent" >User can define minimum reliability criteria for a peptide to be used for ISOQuant processing. <span 
+class="ec-lmri-10">Note: </span>Only peptides passing this
+filter will be used for all further analysis steps!
+<!--l. 663--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x1-260006.1.1.1"></a><span 
+class="ec-lmbx-10">Peptide types</span></span>
+<!--l. 665--><p class="noindent" >Peptides identified in first pass of PLGS database search (type: <span 
+class="ec-lmbx-10">PEP_FRAG_1</span>) are generally accepted. Setting one of
+following parameters to TRUE will configure ISOQuant to accept additional peptide types.
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.identification.peptide.acceptType.IN_SOURCE</span>=false
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.identification.peptide.acceptType.MISSING_CLEAVAGE</span>=false
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.identification.peptide.acceptType.NEUTRAL_LOSS_H20</span>=false
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.identification.peptide.acceptType.NEUTRAL_LOSS_NH3</span>=false
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.identification.peptide.acceptType.PEP_FRAG_2</span>=false
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.identification.peptide.acceptType.PTM</span>=false
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.identification.peptide.acceptType.VAR_MOD</span>=false</li></ul>
+<!--l. 688--><p class="noindent" >Following additional filtering criteria are used as thresholds to select peptides used for further processing steps.
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.identification.peptide.minReplicationRate</span>=2.0<br 
+class="newline" />minimum acceptable peptide replication rate based on absolute number of runs in which every peptide (as
+     sequence-modifier tuple) was identified.
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.identification.peptide.minScore</span>=1.0<br 
+class="newline" />minimum acceptable PLGS peptide identification score.
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.identification.peptide.minOverallMaxScore</span>=1.0<br 
+class="newline" />minimum acceptable value of highest PLGS identification score of a peptide reached in any run of a project. For a
+     peptide detected in multiple runs its maximum reached score has to hit this score to be accepted for annotation.
+     Increasing score will reduce the number of peptides used for EMRT cluster annotation and not necessarily the
+     overall protein quantification quality. Recommended values are between 0.0 and 5.0
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.identification.peptide.minSequenceLength</span>=6<br 
+class="newline" />minimum acceptable peptide sequence length. Recommended value is 6 or more.</li></ul>
+<!--l. 716--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">6.1.2   </span> <a 
+ id="x1-270006.1.2"></a>Annotation mode</h5>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.annotation.useSharedPeptides</span>=all
+         <ul class="itemize2">
+         <li class="itemize"><span 
+class="ec-lmbx-10">all </span>this is the normal case.
+         </li>
+         <li class="itemize"><span 
+class="ec-lmbx-10">unique </span>only unique peptides are used for further processing, this option removes all shared peptides from
+         peptides-in-proteins relation instead of protein homology filtering solving the problem of protein inference
+         in a very radical way.
+         </li>
+         <li class="itemize"><span 
+class="ec-lmbx-10">razor </span>only razor and unique peptides are used for further processing, this option removes all shared peptides
+         from peptides-in-proteins relation after protein homology filtering. Razor and unique peptides are highly
+         reliable for protein quantification because their intensity can be directly assigned to a protein.</li></ul>
+     </li></ul>
+<!--l. 743--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">6.1.3   </span> <a 
+ id="x1-280006.1.3"></a>Annotation conflict filter</h5>
+<!--l. 745--><p class="noindent" >There are cases when multiple peptide identifications map to a single EMRT cluster.
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.annotation.peptide.sequence.maxCountPerEMRTCluster</span>=1<br 
+class="newline" />acceptable  number  of  different  peptide  sequences  (remaining  after  filtering  peptides)  allowed  to  annotate  a
+     single cluster. The annotation process will skip ambiguous clusters if this value is set to <span 
+class="ec-lmbx-10">1</span>. For bigger values,
+     the annotation conflicts are resolved by annotating clusters with the peptide having the highest sum of PLGS
+     identification scores in this cluster.</li></ul>
+                                                                                                  
+                                                                                                  
+<!--l. 761--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">6.1.4   </span> <a 
+ id="x1-290006.1.4"></a>Homology / isoform and FDR filtering</h5>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.annotation.protein.resolveHomology</span>=true<br 
+class="newline" />Should proteins be filtered for (peptide sequence based) homology/isoform. Only one of detected homologue
+     proteins will be reported.
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.annotation.peptide.maxFDR</span>=0.01<br 
+class="newline" />maximum accepted false discovery rate level for peptides. (value 0.01 means maximum 1% FDR)</li></ul>
+<!--l. 776--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">6.2   </span> <a 
+ id="x1-300006.2"></a>Data preprocessing</h4>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.peptide.deplete.PEP_FRAG_2</span>=false<br 
+class="newline" />should PEP_FRAG_2 peptides be completely removed from database.
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.peptide.deplete.CURATED_0</span>=false<br 
+class="newline" />should  CURATED=0  peptides  be  completely  removed  from  database.  If  <span 
+class="ec-lmbx-10">true</span>,  low-quality  peptide  IDs  are
+     removed.</li></ul>
+<!--l. 789--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">6.3   </span> <a 
+ id="x1-310006.3"></a>EMRT table creation</h4>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.emrt.minIntensity</span>=1000<br 
+class="newline" />peaks having intensities below this limit are assumed to be noise and will not appear in EMRT table
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.emrt.minMass</span>=500<br 
+class="newline" />peaks having masses below this limit are assumed to be noise and will not appear in EMRT table</li></ul>
+<!--l. 803--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">6.4   </span> <a 
+ id="x1-320006.4"></a>Retention time alignment</h4>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.emrt.rt.alignment.match.maxDeltaMass.ppm</span>=10.0<br 
+class="newline" />maximum accepted mass difference between two signals to be assumed as matching for retention time alignment.
+                                                                                                  
+                                                                                                  
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.emrt.rt.alignment.match.maxDeltaDriftTime</span>=2.0<br 
+class="newline" />maximum accepted drift time (ion mobility) difference between two signals to be assumed as matching for
+     retention time alignment. This value is ignored for non-ion-mobility projects. Large value, e.g.&#x00A0;200 will disable
+     the effect of ion mobility on the time alignment.
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.emrt.rt.alignment.minIntensity</span>=1000<br 
+class="newline" />only peaks with intensity over this threshold value are considered for the retention time alignment procedure
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.emrt.rt.alignment.minMass</span>=800.0<br 
+class="newline" />only peaks with mass over this threshold value are considered for the retention time alignment procedure
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.emrt.rt.alignment.normalizeReferenceTime</span>=false<br 
+class="newline" />if true, resulting reference times are adjusted to median distortions at every time point.
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.emrt.rt.alignment.maxProcesses</span>=4<br 
+class="newline" />the maximum number of concurrent retention time alignment processes. We recommend values between 1 and
+     the number of available CPU cores. Default value is set to <span 
+class="ts1-lmr10-">½ </span>of the number of CPU cores
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.emrt.rt.alignment.maxProcessForkingDepth</span>=4<br 
+class="newline" />the maximum multithreading depth for each retention time alignment process</li></ul>
+<!--l. 840--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">6.5   </span> <a 
+ id="x1-330006.5"></a>EMRT clustering</h4>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.emrt.clustering.distance.unit.mass.ppm</span>=6.0<br 
+class="newline" />minimum mass based distance between clusters. This is an instrument dependent parameter, e.g.&#x00A0;6 ppm is a
+     good value for Waters Synapt G2/G2-S and 10-12 ppm for Waters Q-TOF Premier and Synapt G1
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.emrt.clustering.distance.unit.time.min</span>=0.2<br 
+class="newline" />minimum retention time based distance between clusters. This is a LC gradient length and peak width dependent
+     parameter, good values are observed to be between 0.06 and 0.2, we recommend to try 0.08, 0.12, 0.16, 0.2; please
+     report which values would work for your setup at which gradient length
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.emrt.clustering.distance.unit.drift.bin</span>=2.0<br 
+class="newline" />menimum drift time based distance between clusters. This is an instrument and also project setup dependent
+     parameter, e.g.&#x00A0;for pure IMS projects containing G2 or G2S data, we recommend a value of 2.0. This value is
+     ignored for non-ion-mobility projects. Large value, e.g.&#x00A0;200 will disable the effect of ion mobility on the EMRT
+     clustering.
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.emrt.clustering.dbscan.minNeighborCount</span>=2<br 
+class="newline" />the minimum cluster size (except of noise) and also the minimum required number of peaks inside the reachability
+     radius for cluster expansion. This is a DBSCAN specific parameter and should be increased for big projects. The
+     value of this parameter also depends on used clustering distance units.
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.emrt.clustering.maxProcesses</span>=8<br 
+class="newline" />the maximum number of concurrent clustering processes. For best performance is reached by setting this value
+     to the number of available CPU cores. Default value is set by the estimated number of available CPU cores.</li></ul>
+                                                                                                  
+                                                                                                  
+<!--l. 880--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">6.6   </span> <a 
+ id="x1-340006.6"></a>Peak intensity normalization</h4>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.normalization.minIntensity</span>=3000<br 
+class="newline" />systematic errors of peptides with intensities below this limit are ignored during normalization process.
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.normalization.lowess.bandwidth</span>=0.3<br 
+class="newline" />bandwidth parameter for non-linear regression method (LOWESS) used for exploring systematic errors during
+     normalization process. Recommended values are between 0.3 and 0.6<br 
+class="newline" />
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.normalization.orderSequence</span>=XPIR<br 
+class="newline" />The processing order sequence of dynamic multi-dimensional normalization. The processing order sequence is
+     defined as a word build from following characters: <span 
+class="ec-lmbx-10">X, P, G, S, W, I, R, M, E</span>. The occurrence of a letter either
+     defines the next dimension for EMRT normalization or changes the normalization mode or discards previously
+     calculated values:
+     <!--l. 901--><p class="noindent" >
+         <dl class="description"><dt class="description">
+     <span 
+class="ec-lmbx-10">X</span> </dt><dd 
+class="description">reset emrt intensities to original values
+         </dd><dt class="description">
+     <span 
+class="ec-lmbx-10">P</span> </dt><dd 
+class="description">activate IN-PROJECT normalization mode, average intensity of all emrts in a cluster is used as the reference.
+         </dd><dt class="description">
+     <span 
+class="ec-lmbx-10">G</span> </dt><dd 
+class="description">activate IN-GROUP normalization mode, average intensity of all emrts from a group of samples within a
+         cluster is used as the reference. T.m. each run uses reference values from its sample group.
+         </dd><dt class="description">
+     <span 
+class="ec-lmbx-10">S</span> </dt><dd 
+class="description">activate IN-SAMPLE normalization mode, average intensity of all emrts from a sample within a cluster is used
+         as the reference. T.m. each run uses reference values from its sample.
+         </dd><dt class="description">
+     <span 
+class="ec-lmbx-10">W</span> </dt><dd 
+class="description">activate  Workflow/Run-Value  based  normalization  mode,  the  run  to  be  the  normalization  reference  is
+         automatically set by choosing the run with the highest number of emrts.
+         </dd><dt class="description">
+     <span 
+class="ec-lmbx-10">I</span> </dt><dd 
+class="description">normalize emrt intensities using log-intensity dimension
+         </dd><dt class="description">
+     <span 
+class="ec-lmbx-10">R</span> </dt><dd 
+class="description">normalize emrt intensities using retention time dimension
+         </dd><dt class="description">
+     <span 
+class="ec-lmbx-10">M</span> </dt><dd 
+class="description">normalize emrt intensities using mass dimension
+         </dd><dt class="description">
+     <span 
+class="ec-lmbx-10">E</span> </dt><dd 
+class="description">equalize emrt intensities by adjusting sums of intensities for each run</dd></dl>
+     <!--l. 931--><p class="noindent" >The order sequence is processed from left to right, e.g.&#x00A0;the recommended order sequence <span 
+class="ec-lmbx-10">XPIR </span>stands
+     for clean in-project normalization using intensity domain followed by normalization using retention time
+     domain.</li></ul>
+<!--l. 937--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">6.7   </span> <a 
+ id="x1-350006.7"></a>Protein quantification</h4>
+                                                                                                  
+                                                                                                  
+<!--l. 939--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">6.7.1   </span> <a 
+ id="x1-360006.7.1"></a>Peptide filtering</h5>
+<!--l. 941--><p class="noindent" >Peptides for protein quantification may be filtered by their type and minimum reached score of a peptide per EMRT cluster.
+<span 
+class="ec-lmbx-10">PEP_FRAG_1 </span>peptides are always accepted. User may decide to accept additional peptide types for quantification.
+Allowing additional types may result in higher number of quantified proteins but also may affect the quality of
+quantification. <span 
+class="ec-lmri-10">Note: </span>This peptide filtering step can not recover peptides not passed the peptide identification
+filter.
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.quantification.peptide.acceptType.IN_SOURCE</span>=false
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.quantification.peptide.acceptType.MISSING_CLEAVAGE</span>=false
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.quantification.peptide.acceptType.NEUTRAL_LOSS_H20</span>=false
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.quantification.peptide.acceptType.NEUTRAL_LOSS_NH3</span>=false
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.quantification.peptide.acceptType.PEP_FRAG_2</span>=false
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.quantification.peptide.acceptType.PTM</span>=false
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.quantification.peptide.acceptType.VAR_MOD</span>=false
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.quantification.peptide.minMaxScorePerCluster</span>=5.0</li></ul>
+<!--l. 971--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">6.7.2   </span> <a 
+ id="x1-370006.7.2"></a>Protein quantification setting</h5>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.quantification.absolute.standard.entry</span>=ENO1_YEAST<br 
+class="newline" />entry of protein used as quantification standard
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.quantification.absolute.standard.fmol</span>=50.0<br 
+class="newline" />amount of quantification standard protein
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.quantification.absolute.standard.used</span>=true<br 
+class="newline" />is a quantification standard protein used at all?
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.quantification.topx.degree</span>=3<br 
+class="newline" />maximum number of peptides for quantifying single proteins
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.quantification.maxProteinFDR</span>=0.01<br 
+class="newline" />maximum accepted false discovery rate level for reported proteins. (value 0.01 means 1% FDR level)
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">process.quantification.minPeptidesPerProtein</span>=1<br 
+class="newline" />a protein is reported only if it can be quantified by using as minimum this number of peptides</li></ul>
+                                                                                                  
+                                                                                                  
+<!--l. 997--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">6.8   </span> <a 
+ id="x1-380006.8"></a>Application behavior</h4>
+<!--l. 999--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">6.8.1   </span> <a 
+ id="x1-390006.8.1"></a>User interface</h5>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.ui.captureConsoleMessages</span>=true<br 
+class="newline" />show Java console messages inside ISOQuant message panel
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.ui.location.left</span>=560<br 
+class="newline" />ISOQuant window location, pixels from left
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.ui.location.top</span>=360<br 
+class="newline" />ISOQuant window location, pixels from top
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.ui.size.height</span>=480<br 
+class="newline" />ISOQuant window height
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.ui.size.width</span>=800<br 
+class="newline" />ISOQuant window width
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.ui.promptForExit</span>=true<br 
+class="newline" />ask user on closing window
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.ui.iconScaleFactor</span>=1.0<br 
+class="newline" />scale original icon sizes by this factor, may be useful on unusually small or large screens.</li></ul>
+<!--l. 1027--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">6.8.2   </span> <a 
+ id="x1-400006.8.2"></a>Data source</h5>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.db.autoLoad</span>=false<br 
+class="newline" />should application connect database on start
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.db.host</span>=localhost<br 
+class="newline" />the MySQL database host name or ip address. Default tcp port number for MySQL servers is 3306. If your
+     MySQL server is running using an other tcp port number, its host name has to be expanded by adding &#8216;:&#8217; and
+     the correct port number, e.g.&#x00A0;localhost:3307 for MySQL server running on local machine and listening at tcp
+     port 3307
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.db.user</span>=root<br 
+class="newline" />MySQL user name
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.db.pass</span>=<br 
+class="newline" />MySQL users password
+                                                                                                  
+                                                                                                  
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.plgs.root.showEACount</span>=true<br 
+class="newline" />should number of PLGS expression analyses be determined and shown
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.plgs.root.showFSSize</span>=false<br 
+class="newline" />should file system size of a projects folder be determined and shown
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.plgs.root.dir</span>=/Volumes/RAID0/PLGS2.5/root<br 
+class="newline" />path of last selected PLGS root folder
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.plgs.root.autoLoad</span>=false<br 
+class="newline" />should application read last used root folder on start</li></ul>
+<!--l. 1061--><p class="noindent" >
+<h5 class="subsubsectionHead"><span class="titlemark">6.8.3   </span> <a 
+ id="x1-410006.8.3"></a>Report</h5>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.report.dir</span>=/Volumes/RAID0/reports<br 
+class="newline" />path of last selected report output folder.
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.report.csv.columnSeparator</span>=&#8216;,&#8217;<br 
+class="newline" />column separator string (enclosed in &#8217; or "), usually either &#8216;,&#8217; or &#8216;;&#8217;
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.report.csv.decimalPoint</span>=&#8216;.&#8217;<br 
+class="newline" />decimal point string (enclosed in &#8217; or "), usually either &#8216;.&#8217; or &#8216;,&#8217;
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.report.csv.textQuote</span>=&#8217;&#8220;&#8217;<br 
+class="newline" />string for quoting text blocks, usually
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.report.mzidentml.DBNCBITaxID</span>=
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.report.mzidentml.DBOrganismScientificName</span>=
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.report.mzidentml.DBversion</span>=
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.report.mzidentml.researcherFirstName</span>=John
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.report.mzidentml.researcherLastName</span>=Doe
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.report.mzidentml.researcherOrganization</span>=Uni-Mainz
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.report.xls.showAbsQuantFMOLUG</span>=true<br 
+class="newline" />create an extra sheet for absolute protein quantity in femtomoles per microgram.
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.report.xls.showAbsQuantFMOL</span>=true<br 
+class="newline" />create an extra sheet for absolute protein quantity in femtomoles.
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.report.xls.showAbsQuantNG</span>=true<br 
+class="newline" />create an extra sheet for absolute protein quantity in nanograms.
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.report.xls.showAbsQuantPPM</span>=true<br 
+class="newline" />create an extra sheet for absolute protein quantity in parts per million.
+     </li>
+                                                                                                  
+                                                                                                  
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.report.xls.showAllProteins</span>=false<br 
+class="newline" />create an extra sheet for some PLGS based proteins details.
+     </li>
+     <li class="itemize"><span 
+class="ec-lmbx-10">setup.report.xls.showRTAlignment</span>=false<br 
+class="newline" />create an extra sheet for retention alignment results.</li></ul>
+<!--l. 1112--><p class="noindent" >Generated excel sheets are limited to maximum 65536 rows when using old XLS (Excel 97/2000/2003) format due to its
+technical limitations. In case of doubt, please use XLSX format for creating ISOQuant reports.
+                                                                                                  
+                                                                                                  
+<h3 class="sectionHead"><span class="titlemark">7   </span> <a 
+ id="x1-420007"></a>End-user license agreement</h3>
+<!--l. 1120--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">7.1   </span> <a 
+ id="x1-430007.1"></a>External components</h4>
+<!--l. 1122--><p class="noindent" >ISOQuant relies on external components (re)distributed under different conditions. By using ISOQuant you need to
+agree to terms and conditions of third party libraries and software included in ISOQuant or needed for running
+ISOQuant.
+<!--l. 1127--><p class="noindent" >ISOQuant uses following external Java libraries:
+<a 
+ id="x1-43001r1"></a><!--l. 1131--><div class="longtable"> <table id="TBL-2" class="longtable" 
+cellspacing="0" cellpadding="0"  
+><colgroup id="TBL-2-1g"><col 
+id="TBL-2-1"><col 
+id="TBL-2-2"><col 
+id="TBL-2-3"><col 
+id="TBL-2-4"></colgroup>
+<tr  
+ style="vertical-align:baseline;" id="TBL-2-1-"><td colspan="3" style="white-space:nowrap; text-align:left;" id="TBL-2-1-1"  
+class="td01"></td><!--cmidrule-->
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-2-1"  
+class="td01"><div class="minipage">Library               </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-2-2"  
+class="td11"><div class="minipage">Version       </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-2-3"  
+class="td11"><div class="minipage">License
+Type                          </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-2-4"  
+class="td10"><div class="minipage">Purpose                                       </div></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-3-"><td colspan="3" style="white-space:nowrap; text-align:left;" id="TBL-2-3-1"  
+class="td01"></td><!--cmidrule-->
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-4-1"  
+class="td01">                </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-5-1"  
+class="td01">                </td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-5-2"  
+class="td11">           </td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-5-3"  
+class="td11">                     </td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-5-4"  
+class="td10">
+</td></tr>
+<tr  
+ style="vertical-align:baseline;" id="TBL-2-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-6-1"  
+class="td01"><div class="minipage">JDOM                </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-6-2"  
+class="td11"><div class="minipage">1.1.3           </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-6-3"  
+class="td11"><div class="minipage">BSD
+License                       </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-6-4"  
+class="td10"><div class="minipage">XML
+handling                                      </div></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-7-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-7-1"  
+class="td01"><div class="minipage">Tagsoup              </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-7-2"  
+class="td11"><div class="minipage">1.2.1           </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-7-3"  
+class="td11"><div class="minipage">Apache
+v2.0                           </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-7-4"  
+class="td10"><div class="minipage">XML
+parsing                                        </div></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-8-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-8-1"  
+class="td01"><div class="minipage">MySQL
+Connector/J        </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-8-2"  
+class="td11"><div class="minipage">5.1.13         </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-8-3"  
+class="td11"><div class="minipage">GPLv2
+with<br />
+FOSS
+Exception                   </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-8-4"  
+class="td10"><div class="minipage">database
+communication                             </div></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-9-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-9-1"  
+class="td01"><div class="minipage">JSiX                  </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-9-2"  
+class="td11"><div class="minipage">1.0             </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-9-3"  
+class="td11"><div class="minipage">BSD
+License                       </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-9-4"  
+class="td10"><div class="minipage">Java
+extensions                                    </div></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-10-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-10-1"  
+class="td01"><div class="minipage">POI                   </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-10-2"  
+class="td11"><div class="minipage">3.8             </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-10-3"  
+class="td11"><div class="minipage">Apache
+v2.0                           </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-10-4"  
+class="td10"><div class="minipage">spreadsheet
+file
+creation                                       </div></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-11-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-11-1"  
+class="td01"><div class="minipage">DOM4J              </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-11-2"  
+class="td11"><div class="minipage">1.6.1           </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-11-3"  
+class="td11"><div class="minipage">BSD
+License                       </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-11-4"  
+class="td10"><div class="minipage">POI
+dependency                                  </div></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-12-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-12-1"  
+class="td01"><div class="minipage">StAX                 </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-12-2"  
+class="td11"><div class="minipage">1.0.1           </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-12-3"  
+class="td11"><div class="minipage">Apache
+v2.0                           </div></td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-12-4"  
+class="td10"><div class="minipage">POI
+dependency                                  </div></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-13-"><td colspan="3" style="white-space:nowrap; text-align:left;" id="TBL-2-13-1"  
+class="td01"></td><!--cmidrule-->
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-14-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-14-1"  
+class="td01">                </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-15-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-15-1"  
+class="td01">                </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-16-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-16-1"  
+class="td01">                </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-17-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-17-1"  
+class="td01">                </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-18-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-18-1"  
+class="td01">                </td>
+</tr>
+</table></div>
+<!--l. 1209--><p class="noindent" >Binary versions of these libraries are repackaged into and redistributed with ISOQuant software package according to their
+license conditions. Please find original licenses as part of ISOQuant package.
+<!--l. 1213--><p class="noindent" >Furthermore, ISOQuant relies on external environmental software being not a part or a component of ISOQuant but needed to
+run it:
+     <ul class="itemize1">
+     <li class="itemize">Operating System
+     </li>
+                                                                                                  
+                                                                                                  
+     <li class="itemize">Java Virtual Machine
+     </li>
+     <li class="itemize">MySQL  5.1  compatible  database  engine  (e.g.&#x00A0;MySQL  Server:  <span 
+class="ec-lmbx-10">http://www.mysql.com/  </span>or  MariaDB:
+     <span 
+class="ec-lmbx-10">http://mariadb.org/</span>)
+     </li>
+     <li class="itemize">Waters ProteinLynx Global Server</li></ul>
+<!--l. 1230--><p class="noindent" >Please pay attention to terms and conditions arising from any software usage in any way related to ISOQuant.
+                                                                                                  
+                                                                                                  
+<h4 class="subsectionHead"><span class="titlemark">7.2   </span> <a 
+ id="x1-440007.2"></a>ISOQuant license agreement </h4>
+<!--l. 1238--><p class="noindent" >ISOQuant binaries and source code are available under conditions of BSD license as follows:
+<!--l. 1241-->
+   <div class="lstlisting" id="listing-6"><span class="label"><a 
+ id="x1-44001r1"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">ISOQuant</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">-</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">integrated</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">solution</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtk-10x-x-90">for</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">LC</span><span 
+class="ec-lmtt-9">-</span><span 
+class="ec-lmtt-9">MS</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">based</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">label</span><span 
+class="ec-lmtt-9">-</span><span 
+class="ec-lmtt-9">free</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">protein</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">quantification</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44002r2"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44003r3"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Copyright</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">(</span><span 
+class="ec-lmtt-9">c</span><span 
+class="ec-lmtt-9">)</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">2009</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">-</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">2013,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">JOERG</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">KUHAREV</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">and</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">STEFAN</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">TENZER</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44004r4"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">All</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">rights</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">reserved</span><span 
+class="ec-lmtt-9">.</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44005r5"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44006r6"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Redistribution</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">and</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">use</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtk-10x-x-90">in</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">source</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">and</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">binary</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">forms</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">with</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">or</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">without</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44007r7"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">modification</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">are</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">permitted</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">provided</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">that</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">the</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">following</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">conditions</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">are</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">met</span><span 
+class="ec-lmtt-9">:</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44008r8"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">1.</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Redistributions</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">of</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">source</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">code</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">must</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">retain</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">the</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">above</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">copyright</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44009r9"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">notice</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">this</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">list</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">of</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">conditions</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">and</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">the</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">following</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">disclaimer</span><span 
+class="ec-lmtt-9">.</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44010r10"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">2.</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Redistributions</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtk-10x-x-90">in</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">binary</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">form</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">must</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">reproduce</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">the</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">above</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">copyright</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44011r11"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">notice</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">this</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">list</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">of</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">conditions</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">and</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">the</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">following</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">disclaimer</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtk-10x-x-90">in</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">the</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44012r12"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">documentation</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">and</span><span 
+class="ec-lmtt-9">/</span><span 
+class="ec-lmtt-9">or</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">other</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">materials</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">provided</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">with</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">the</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">distribution</span><span 
+class="ec-lmtt-9">.</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44013r13"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">3.</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">All</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">advertising</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">materials</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">mentioning</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">features</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">or</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">use</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">of</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">this</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">software</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44014r14"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">must</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">display</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">the</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">following</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">acknowledgement</span><span 
+class="ec-lmtt-9">:</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44015r15"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">This</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">product</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">includes</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">software</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">developed</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">by</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">JOERG</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">KUHAREV</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">and</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">STEFAN</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">TENZER</span><span 
+class="ec-lmtt-9">.</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44016r16"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">4.</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">Neither</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">the</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">name</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">"</span><span 
+class="ec-lmtt-9">ISOQuant</span><span 
+class="ec-lmtt-9">"</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">nor</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">the</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44017r17"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">names</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">of</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">its</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">contributors</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">may</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">be</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">used</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">to</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">endorse</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">or</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">promote</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">products</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44018r18"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">derived</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">from</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">this</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">software</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">without</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">specific</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">prior</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">written</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">permission</span><span 
+class="ec-lmtt-9">.</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44019r19"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44020r20"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">THIS</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">SOFTWARE</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">IS</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">PROVIDED</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">BY</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">JOERG</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">KUHAREV</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">and</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">STEFAN</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">TENZER</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ts1-lmtt9-">&#8217;&#8217;</span><span 
+class="ec-lmtt-9">AS</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">IS</span><span 
+class="ts1-lmtt9-">&#8217;&#8217;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">AND</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">ANY</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44021r21"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">EXPRESS</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">OR</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">IMPLIED</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">WARRANTIES</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">INCLUDING</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">BUT</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">NOT</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">LIMITED</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">TO</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">THE</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">IMPLIED</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44022r22"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">WARRANTIES</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">OF</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">MERCHANTABILITY</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">AND</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">FITNESS</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">FOR</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">A</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">PARTICULAR</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">PURPOSE</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">ARE</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44023r23"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">DISCLAIMED</span><span 
+class="ec-lmtt-9">.</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">IN</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">NO</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">EVENT</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">SHALL</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">JOERG</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">KUHAREV</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">BE</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">LIABLE</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">FOR</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">ANY</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44024r24"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">DIRECT</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">INDIRECT</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">INCIDENTAL</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">SPECIAL</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">EXEMPLARY</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">OR</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">CONSEQUENTIAL</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">DAMAGES</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44025r25"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">(</span><span 
+class="ec-lmtt-9">INCLUDING</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">BUT</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">NOT</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">LIMITED</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">TO</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">PROCUREMENT</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">OF</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">SUBSTITUTE</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">GOODS</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">OR</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">SERVICES</span><span 
+class="ec-lmtt-9">;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44026r26"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">LOSS</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">OF</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">USE</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">DATA</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">OR</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">PROFITS</span><span 
+class="ec-lmtt-9">;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">OR</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">BUSINESS</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">INTERRUPTION</span><span 
+class="ec-lmtt-9">)</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">HOWEVER</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">CAUSED</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">AND</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44027r27"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">ON</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">ANY</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">THEORY</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">OF</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">LIABILITY</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">WHETHER</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">IN</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">CONTRACT</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">STRICT</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">LIABILITY</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">OR</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">TORT</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44028r28"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">(</span><span 
+class="ec-lmtt-9">INCLUDING</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">NEGLIGENCE</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">OR</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">OTHERWISE</span><span 
+class="ec-lmtt-9">)</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">ARISING</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">IN</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">ANY</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">WAY</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">OUT</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">OF</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">THE</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">USE</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">OF</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">THIS</span><span 
+class="ec-lmtt-9">&#x00A0;</span><br /><span class="label"><a 
+ id="x1-44029r29"></a></span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">SOFTWARE</span><span 
+class="ec-lmtt-9">,</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">EVEN</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">IF</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">ADVISED</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">OF</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">THE</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">POSSIBILITY</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">OF</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">SUCH</span><span 
+class="ec-lmtt-9">&#x00A0;</span><span 
+class="ec-lmtt-9">DAMAGE</span><span 
+class="ec-lmtt-9">.</span>
+   
+</div>
+<!--l. 1274--><p class="noindent" >
+<h4 class="subsectionHead"><span class="titlemark">7.3   </span> <a 
+ id="x1-450007.3"></a>Disclaimer in plain language</h4>
+     <ul class="itemize1">
+     <li class="itemize">ISOQuant  is  an  academically  developed  freely  available  software  implemented  using  only  freely  available
+     technologies
+     </li>
+     <li class="itemize">By using ISOQuant you automatically agree to terms and conditions of third party libraries and software included
+     in ISOQuant or needed for running ISOQuant
+     </li>
+     <li class="itemize">We provide ISOQuant as is, without any kind of warranty
+     </li>
+     <li class="itemize">You are using ISOQuant at your own risk, we are not responsible for any kind of damage, errors or data loss
+     produced in any way related to ISOQuant.</li></ul>
+                                                                                                  
+                                                                                                  
+<h3 class="sectionHead"><span class="titlemark">8   </span> <a 
+ id="x1-460008"></a>About developers</h3>
+<!--l. 1297--><p class="noindent" >ISOQuant is developed by
+     <ul class="itemize1">
+     <li class="itemize">Jörg Kuharev (<a 
+href="mailto:kuharev@uni-mainz.de" >kuharev@uni-mainz.de</a>) and
+     </li>
+     <li class="itemize">Pedro Navarro (<a 
+href="mailto:pnavarro@uni-mainz.de" >pnavarro@uni-mainz.de</a>) and
+     </li>
+     <li class="itemize">Stefan Tenzer (<a 
+href="mailto:tenzer@uni-mainz.de" >tenzer@uni-mainz.de</a>)</li></ul>
+<!--l. 1314--><p class="noindent" >UNIVERSITÄTSMEDIZIN<br 
+class="newline" />der Johannes Gutenberg-Universität<br 
+class="newline" />Institut für Immunologie<br 
+class="newline" />Core Facility für Massenspektrometrie<br 
+class="newline" />Germany, Mainz, September 29, 2016
+<div class="center" 
+>
+<!--l. 1320--><p class="noindent" >
+<!--l. 1320--><p class="noindent" >_________________________________________________</div>
+                                                                                                  
+                                                                                                  
+<h3 class="likesectionHead"><a 
+ id="x1-470008"></a>References</h3>
+<a 
+ id="Q1-1-55"></a>
+<!--l. 1327--><p class="noindent" ><a 
+ id="refs"></a> <a 
+ id="ref-bond_improving_2013"></a> Bond, Nicholas J, Pavel V Shliaha, Kathryn S Lilley, and Laurent Gatto. 2013. &#8220;Improving Qualitative and Quantitative
+Performance for MS E-Based Label-Free Proteomics.&#8221; <span 
+class="ec-lmri-10">Journal of Proteome Research</span>.
+<!--l. 1333--><p class="noindent" ><a 
+ id="ref-distler_drift_2014"></a> Distler, Ute, Jörg Kuharev, Pedro Navarro, Yishai Levin, Hansjörg Schild, and Stefan Tenzer. 2014. &#8220;Drift Time-Specific
+Collision Energies Enable Deep-Coverage Data-Independent Acquisition Proteomics.&#8221; <span 
+class="ec-lmri-10">Nature Methods </span>11 (2): 167&#8211;70.
+doi:<a 
+href="https://doi.org/10.1038/nmeth.2767" >10.1038/nmeth.2767</a>.
+<!--l. 1340--><p class="noindent" ><a 
+ id="ref-ester_density-based_1996"></a> Ester, Martin, Hans P. Kriegel, Jorg Sander, and Xiaowei Xu. 1996. &#8220;A Density-Based Algorithm for Discovering
+Clusters in Large Spatial Databases with Noise.&#8221; In <span 
+class="ec-lmri-10">Second International Conference on Knowledge Discovery and</span>
+<span 
+class="ec-lmri-10">Data Mining</span>, edited by Evangelos Simoudis, Jiawei Han, and Usama Fayyad, 226&#8211;31. Portland, Oregon: AAAI
+Press.
+<!--l. 1347--><p class="noindent" ><a 
+ id="ref-kuharev_-depth_2015"></a> Kuharev, Jörg, Pedro Navarro, Ute Distler, Olaf Jahn, and Stefan Tenzer. 2015. &#8220;In-Depth Evaluation of Software Tools for
+Data-Independent Acquisition Based Label-Free Quantification.&#8221; <span 
+class="ec-lmri-10">PROTEOMICS</span>. doi:<a 
+href="https://doi.org/10.1002/pmic.201400396" >10.1002/pmic.201400396</a>.
+<!--l. 1353--><p class="noindent" ><a 
+ id="ref-nesvizhskii_interpretation_2005"></a> Nesvizhskii, Alexey I., and Ruedi Aebersold. 2005. &#8220;Interpretation of Shotgun Proteomic Data: The Protein Inference
+Problem.&#8221; <span 
+class="ec-lmri-10">Molecular &amp; Cellular Proteomics: MCP </span>4 (10): 1419&#8211;40. doi:<a 
+href="https://doi.org/10.1074/mcp.R500012-MCP200" >10.1074/mcp.R500012-MCP200</a>.
+<!--l. 1359--><p class="noindent" ><a 
+ id="ref-podwojski_retention_2009"></a> Podwojski, Katharina, Arno Fritsch, Daniel C. Chamrad, Wolfgang Paul, Barbara Sitek, Kai Stühler, Petra Mutzel, et al.
+2009. &#8220;Retention Time Alignment Algorithms for LC/MS Data Must Consider Non-Linear Shifts.&#8221; <span 
+class="ec-lmri-10">Bioinformatics </span>25 (6):
+758&#8211;64. doi:<a 
+href="https://doi.org/10.1093/bioinformatics/btp052" >10.1093/bioinformatics/btp052</a>.
+<!--l. 1366--><p class="noindent" ><a 
+ id="ref-silva_absolute_2006"></a> Silva, Jeffrey C, Marc V Gorenstein, Guo-Zhong Li, Johannes P C Vissers, and Scott J Geromanos. 2006. &#8220;Absolute
+Quantification of Proteins by LCMSE: A Virtue of Parallel MS Acquisition.&#8221; <span 
+class="ec-lmri-10">Molecular &amp; Cellular Proteomics: MCP </span>5 (1):
+144&#8211;56. doi:<a 
+href="https://doi.org/10.1074/mcp.M500230-MCP200" >10.1074/mcp.M500230-MCP200</a>.
+ 
+</body></html> 
+
+                                                                                                  
+
+

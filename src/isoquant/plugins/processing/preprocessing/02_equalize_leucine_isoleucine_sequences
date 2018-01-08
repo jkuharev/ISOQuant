@@ -1,0 +1,17 @@
+-- backup peptide sequences
+ALTER TABLE `peptide` ADD COLUMN (original_sequence varchar(255) DEFAULT NULL);
+--
+
+-- collect peptide sequences
+DROP TABLE IF EXISTS peptide_sequences;
+CREATE TABLE peptide_sequences
+SELECT 
+	DISTINCT md5(sequence) as id,
+	sequence as seq, 
+	sequence as jseq 
+FROM
+	`peptide`;
+ALTER TABLE peptide_sequences ADD INDEX(id);
+
+UPDATE peptide_sequences SET jseq=REPLACE(jseq, "I", "J") WHERE LOCATE("I", jseq)>0;
+UPDATE peptide_sequences SET jseq=REPLACE(jseq, "L", "J") WHERE LOCATE("L", jseq)>0;

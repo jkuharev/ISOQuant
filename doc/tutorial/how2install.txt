@@ -1,0 +1,50 @@
+% ISOQuant installation guide
+% Jörg Kuharev
+% \today
+
+--------------------------------------------------------------------------------
+
+\clearpage
+
+
+# About installation guide
+This document describes how to install ISOQuant and related software.
+Installation procedure may vary depending on your operating system environment.
+This document only handles generic cases for Windows, Linux and Mac OSX
+machines.
+
+# Software requirements
+
+#. Java Virtual Machine (version 1.6 and newer or compatible)
+	locally installed as the execution environment 
+	as ISOQuant is a Java application.
+#. MySQL Server (version 5.1. and newer or compatible)
+	locally installed or available on local network.
+#. Waters ProteinLynx Global Server (PLGS) (version 2.3. or newer)\
+	in fact, you don't need PLGS itself,
+	however ISOQuant needs PLGS root folder to be locally available
+	(as a local folder or as a locally mounted network path)
+#. Web browser (Firefox, Safari, Opera, etc.)
+	for viewing generated HTML reports
+#. Spreadsheet viewer (MS-Excel or compatible, e.g. LibreOffice Calc)
+	for viewing generated XLS and CSV reports
+
+# Installation steps
+
+## Windows
+To simplify the installation process on Windows machines, 
+we have created a Windows installation package - ``ISOQuant for Windows``.
+Packaged installation assistant will guide you through the installation process.
+
+## Mac OS X
+To simplify the installation process on Macintosh machines, 
+we have created a Mac OS X image file.
+The image file ``ISOQuant for Mac`` contains the ISOQuant.app, 
+which should be copied to a local folder, e.g. `Applications` folder.
+
+## Linux, Unix and other OS
+For advanced users, we have created a portable distribution package 
+``ISOQuant portable``, which may be used on any operating systems.
+The portable distribution is an archive containing all needed files.
+Use packaged launcher scripts `isoquant4unix.sh` or `isoquant4win.bat`
+to launch ISOQuant application.

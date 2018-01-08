@@ -1,0 +1,56 @@
+\usepackage[left=2cm,right=1.5cm,top=1.5cm,bottom=1.5cm]{geometry}
+% \setlength{\parindent}{0.25in}
+\setlength{\parskip}{0.4cm}
+\pagestyle{plain}
+
+\usepackage[utf8]{inputenc}
+
+\lstset{literate=%
+    {Ö}{{\"O}}1
+    {Ä}{{\"A}}1
+    {Ü}{{\"U}}1
+    {ß}{{\ss}}1
+    {ü}{{\"u}}1
+    {ä}{{\"a}}1
+    {ö}{{\"o}}1
+    {~}{{\textasciitilde}}1
+}
+
+\renewcommand{\contentsname}{Table of contents}
+
+\usepackage{color}
+% \definecolor{bgColor}{rgb}{1,1,0.95}
+% \pagecolor{bgColor}
+
+\definecolor{middlegray}{rgb}{0.5,0.5,0.5}
+\definecolor{lightgray}{rgb}{0.8,0.8,0.8}
+\definecolor{orange}{rgb}{0.8,0.3,0.3}
+\definecolor{yac}{rgb}{0.6,0.6,0.1}
+% settings for lstlisting environment
+\lstset{
+  basicstyle=\small\ttfamily,
+  keywordstyle=\bfseries\ttfamily\color{orange},
+  stringstyle=\color{black}\ttfamily,
+  commentstyle=\color{middlegray}\ttfamily,
+  emph={square}, 
+  emphstyle=\color{blue}\texttt,
+  emph={[2]root,base},
+  emphstyle={[2]\color{yac}\texttt},
+  showstringspaces=false,
+  flexiblecolumns=false,
+  tabsize=2,
+%  numbers=left,
+%  numberstyle=\tiny,
+%  numberblanklines=false,
+%  stepnumber=1,
+%  numbersep=10pt,
+  language=sh, 
+  numbers=none,
+  frame=shadowbox,
+  xleftmargin=15pt,
+  backgroundcolor={\color{lightgray}},
+  texcl=\true,
+  extendedchars=\true
+}
+
+\renewcommand{\baselinestretch}{1.0}\normalsize

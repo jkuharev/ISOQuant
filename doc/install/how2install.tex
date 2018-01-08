@@ -1,0 +1,237 @@
+\documentclass[a4paper,12pt]{scrartcl}
+
+\usepackage{ngerman}
+\usepackage[pdftex]{graphicx}
+\usepackage[latin1]{inputenc}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+
+\usepackage{listings, color, hyperref}
+
+% Quellcode-Listings
+% \begin{lstlisting} ... \end{lstlisting}
+ \definecolor{middlegray}{rgb}{0.5,0.5,0.5}
+ \definecolor{lightgray}{rgb}{0.8,0.8,0.8}
+ \definecolor{orange}{rgb}{0.8,0.3,0.3}
+ \definecolor{yac}{rgb}{0.6,0.6,0.1}
+\lstset{ % settings for lstlisting environment
+  basicstyle=\scriptsize\ttfamily,
+  keywordstyle=\bfseries\ttfamily\color{orange},
+  stringstyle=\color{black}\ttfamily,
+  commentstyle=\color{middlegray}\ttfamily,
+  emph={square}, 
+  emphstyle=\color{blue}\texttt,
+  emph={[2]root,base},
+  emphstyle={[2]\color{yac}\texttt},
+  showstringspaces=false,
+  flexiblecolumns=false,
+  tabsize=2,
+%  numbers=left,
+%  numberstyle=\tiny,
+%  numberblanklines=false,
+%  stepnumber=1,
+%  numbersep=10pt,
+  language=sh, 
+  numbers=none,
+  frame=shadowbox,
+  xleftmargin=15pt,
+  backgroundcolor={\color{lightgray}}
+}
+
+
+\definecolor{bgColor}{rgb}{1,1,0.95}
+\pagecolor{bgColor}
+
+\pagestyle{plain}
+\setlength{\parindent}{0pt}
+
+\renewcommand{\figurename}{Pic.}
+\renewcommand{\tablename}{Tab.}
+\renewcommand{\thefigure}{\arabic{figure}}
+\renewcommand{\thetable}{\arabic{table}}
+
+\newcommand{\iq}{\texttt{ISOQuant} }
+\newcommand{\hr}{\underline{\hspace{\textwidth}} \\}
+
+\newenvironment{tab}[4]
+{
+%usage: 
+%\begin{tab}{columns}{label}{caption}{description}
+% 	cell 11 & cell 12 & ... \\
+% 	cell 21 & cell 22 & ... \\
+% 	... \\
+%\end{tab}
+\begin{table}
+    \centering
+    \caption[#3]{{\bf #3}, #4.}
+    \label{#2}
+    \begin{tabular}{#1}
+}
+{
+	\end{tabular}
+\end{table}
+}
+
+%usage: \pic{file}{label}{caption}{description}
+\newcommand{\pic}[4][width=0.8\textwidth]
+{
+	\begin{figure}[htbp]
+		\centering 
+		\includegraphics[#1]{#2}
+		\caption[#4]{{\bf #4}}
+		\label{#3}
+	\end{figure}
+}
+
+\renewcommand\contentsname{Table of Contents}
+
+\title{ ISOQuant, Installation Guide \hr}
+\author{ J\"org Kuharev, Stefan Tenzer}
+
+\begin{document}
+\maketitle
+%\newpage
+\hr
+\tableofcontents
+\newpage
+
+\section{Description}
+One of the main bottlenecks in the evaluation of 
+		label-free quantitative proteomics experiments is 
+		the often cumbersome data export for in-depth data 
+		evaluation and analysis. Data-independent, 
+		alternate scanning LC-MS peptide fragmentation 
+		data can currently only be processed by Waters PLGS software.
+		$~$\\
+		PLGS performs absolute quantification only on a 
+		run-to-run level, it does not afford absolute 
+		quantification of protein isoforms and label-free 
+		relative quantification of peptides and proteins 
+		based on clustered accurate mass-retention time 
+		pairs on a complete experiment basis.
+		$~$\\
+		\iq, a java based application, directly accesses 
+		xml files from the PLGS root folder and browses for 
+		relevant data from a label-free Expression Analysis 
+		project (quantification analyses, sample descriptions, 
+		search results) for fully automated import into a MySQL database. 
+		EMRTs are subjected to multidimensional Lowess-based intensity 
+		normalization and annotated by matching exact masses and aligned 
+		retention times of detected features with highest scoring peptide 
+		identification data from associated workflows. 
+		Based on the annotated cluster table, \iq calculates 
+		absolute in-sample amounts with an integrated 
+		protein isoform quantification method, utilizing average 
+		intensities of proteotypic peptides for the partitioning 
+		of non-unique peptide intensities between protein isoforms.
+
+		All data is stored in a local MySQL based database that 
+		can be queried directly by experienced users.
+
+		\iq is an integrated solution for in-depth evaluation 
+		and statistical analyses, allowing easy data access and 
+		export to third party analysis software. \\
+\newpage
+\section{System requirements}
+	\begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
+      Operating System & Windows (2k/XP/Vista/7), \newline Mac OS X \newline Linux\\\\
+      
+	  Memory & minimum of 2GB RAM \\\\
+      
+      Java Virtual Machine & Java\texttrademark 2 Platform Standard Edition (J2SE)\newline
+      Runtime Environment 1.6.0 or newer\\\\
+      
+%      GNU R & GNU R 2.8.0 with RMySQL 0.7-4 and Gplots \\\\
+      
+      Database & MySQL 5.2 \\
+    \end{tabular}
+
+\newpage
+\section{Installation steps}
+	\iq is distributet as a single JAR file. JAR file is an executable java archive package.
+
+	\subsection{Java Installation}
+		To be able to execute a JAR file Java Virtual Machine has to be installed.
+		Please install last available Java version from \url{http://www.java.com/download/}.
+		Now you should be able to execute JAR files by doubleclicking them or
+		by using the command line e.g. 
+		\begin{lstlisting}
+			>java -jar ISOQuant.jar
+		\end{lstlisting}
+		
+	\subsection{MySQL Installation}
+		\iq uses MySQL databases for storing data. 
+		Please install last version of MySQL from \url{http://dev.mysql.com/downloads/mysql/} or 
+		the XAMPP package from \url{http://www.apachefriends.org/en/xampp.html}.
+%		XAMPP will not automatically create registry entries for mysql
+		
+		\iq uses  the ability of MySQL to handle large in memory tables
+		 to speed up data import. For this reason please 
+		edit MySQL's configuration file \emph{my.ini} 
+		(or \emph{my.cnf} depending on MySQL version)
+		and append to the section \emph{[mysqld]} the following attributes
+		\begin{lstlisting}
+			max_heap_table_size = 2048M
+			tmp_table_size = 2048M
+		\end{lstlisting}
+		(or change values if these attributes are already defined)
+		You will find this configuration file in {\tt [MySQL-Installation-Folder]/bin}
+		(alternative locations are possible depending on your 
+		operating system and MySQL distribution of your choice.)
+
+	\subsection{Application folder}
+		After you have successfully installed Java and MySQL you may execute \iq first time.
+		After first execution \iq will place a configuration file {\bf isoquant.ini} 
+		into directory where ISOQuant.jar is placed.
+		So the moving ISOQuant.jar file in a separate folder of your choice 
+		will be a good idea before executing it.
+
+\newpage
+\section{Usage}
+	Read built-in application help or help.pdf for details.
+
+%	\subsection{GNU R}
+%		A feature of \iq is the heatmap visualisation of protein quantification.
+%		For creating heatmaps \emph{GNU R} is needed to be installed on your machine.
+%		Please install \emph{GNU R} from \url{http://cran.at.r-project.org/bin/} 
+%		(preferred version 2.9.2: 
+%		\url{http://cran.at.r-project.org/bin/windows/base/old/2.9.2/R-2.9.2-win32.exe}). 
+%		For making R installation usable by \iq the
+%		system variable PATH has to be corrected. 
+%		Please append the path to R executables to your environment settings.
+%		
+%		e.g. for Windows XP machines by 
+%			\begin{itemize}
+%				\item right mouse click on \textbf{My Computer}
+%				\item select context menu item \textbf{Properties}
+%				\item select tab \textbf{Advanced}
+%				\item click button \textbf{Enviroment Variables}
+%				\item select \textbf{Path} from the list of \textbf{System variables}
+%				\item click button \textbf{edit}
+%				\item at the end of string shown in field \textbf{Variable value} 
+%				add \textbf{;} (semicolon sign) 
+%				followed by the binary path to R executables 
+%				(in most cases c:\textbackslash program 
+%				files\textbackslash r\textbackslash r-2.9.2\textbackslash bin).
+%			\end{itemize}
+%		
+%		Two additional GNU R packages (and their depencies)
+%		need to be installed \emph{RMySQL} from
+%		\url{http://biostat.mc.vanderbilt.edu/wiki/Main/RMySQL} 
+%		(Version RMySQL\_0.7-4 works fine with R 2.9.2) and \emph{gplots} from
+%		\url{http://cran.r-project.org/web/packages/gplots/index.html}.
+%		For Windows XP users these packages could be easily installed by
+%		executing \textbf{install\_libs.bat} from \textbf{rlibs} folder.
+%		Now the package RMySQL need to know where MySQL is located.	
+%\newpage
+\section{About developers}
+	\iq is developed by
+	\begin{itemize}
+		\item J\"org Kuharev (joerg.kuharev@unimedizin-mainz.de),
+		\item Stefan Tenzer (tenzer@uni-mainz.de)
+	\end{itemize}
+	March 2011\\$~$\\
+	UNIVERSIT\"ATSMEDIZIN der Johannes Gutenberg-Universit\"at \\
+	Institut f\"ur Immunologie \\
+	Core Facility f\"ur Massenspektrometrie \\		
+
+\end{document}
