@@ -3,7 +3,7 @@ ISOQuant - **I**ntegrated **SO**lution for LC-MS based label-free protein **QUAN
 
 # Dependencies
 I prepackaged all external libraries as JAR files in the subfolder "lib".
-The only additional external dependencie is https://github.com/jkuharev/PLGSDataAccess.
+The only additional external dependency is https://github.com/jkuharev/PLGSDataAccess.
 
 # How to compile
 ISOQuant and PLGSAccess are are Eclipse projects.
