@@ -13,10 +13,7 @@ import java.util.List;
 
 import javax.swing.*;
 
-import de.mz.jk.plgs.data.ExpressionAnalysis;
-import de.mz.jk.plgs.data.Group;
-import de.mz.jk.plgs.data.Sample;
-import de.mz.jk.plgs.data.Workflow;
+import de.mz.jk.plgs.data.*;
 import de.mz.jk.plgs.reader.ProjectReader;
 import isoquant.kernel.db.DBProject;
 import isoquant.plugins.plgs.importing.design.tree.ProjectDesignISOQuantProjectTreePanel;
@@ -41,9 +38,9 @@ public class ProjectDesignPanel extends JPanel implements ComponentListener, Act
 	{
 // String runPath =
 // "/Volumes/RAID0/PLGS2.4/root/Proj__12514907738010_21391414877363146/_12514908018190_15061650301830354/";
-		String prjPath = "/Volumes/RAID0/PLGS2.4/root/Proj__12514907738010_21391414877363146";
+		String prjPath = "/Volumes/DAT/2013-04 Human Yeast Ecoli 1P FDR/Proj__13966189271230_9093339492956815/";
 		File prjDir = new File(prjPath);
-		File prjFile = new File(prjDir.getAbsolutePath() + File.separator + "DBProject.xml");
+		File prjFile = new File( prjDir.getAbsolutePath() + File.separator + "Project.xml" );
 		DBProject p = new DBProject( ProjectReader.getProject( prjFile, false ) );
 		JFrame win = new JFrame();
 		win.setSize(640, 480);
@@ -81,6 +78,54 @@ public class ProjectDesignPanel extends JPanel implements ComponentListener, Act
 		new ProjectDesignDualTreeDragAndDropHandler(srcTree, tarTree);
 		new ProjectDesignContextMenu(srcTree, tarTree);
 		addComponentListener(this);
+	}
+
+	/**
+	 * @TODO we are testing if this is ok, not to read project xml
+	 * @param p
+	 * @param reReadProjectXML
+	 * @throws Exception
+	 */
+	public ProjectDesignPanel(DBProject p, boolean reReadProjectXML) throws Exception
+	{
+		this.inputProject = p;
+
+		if (reReadProjectXML)
+			this.plgsPrj = new DBProject( ProjectReader.getProject( new File( p.data.getProjectFilePath() ), true ) );
+		else
+		{
+			this.plgsPrj = p.clone();
+			this.plgsPrj.data.samples = new ArrayList<Sample>( p.data.samples );
+		}
+
+		packageLooseSamples( plgsPrj.data );
+
+		iqPrj = p.clone();
+		srcTreePanel = new ProjectDesignPLGSProjectTreePanel( plgsPrj );
+		srcTree = srcTreePanel.getTree();
+		tarTreePanel = new ProjectDesignISOQuantProjectTreePanel( iqPrj );
+		tarTree = tarTreePanel.getTree();
+		initGUI();
+		new ProjectDesignDualTreeDragAndDropHandler( srcTree, tarTree );
+		new ProjectDesignContextMenu( srcTree, tarTree );
+		addComponentListener( this );
+	}
+
+	public static void packageLooseSamples(Project p)
+	{
+		List<Sample> looseSamples = new ArrayList( p.samples.size() );
+		for ( Sample s : p.samples )
+		{ // collect samples that are not mapped to any sample group
+			if (s.group == null) looseSamples.add( s );
+		}
+
+		if (looseSamples.size() > 0)
+		{ // we have unmapped samples in this project
+			ExpressionAnalysis ea = new ExpressionAnalysis( p, "default analysis" );
+			Group g = new Group( ea, "default sample group" );
+			g.samples.addAll( looseSamples );
+		}
+		System.out.println( "" );
 	}
 
 	/**

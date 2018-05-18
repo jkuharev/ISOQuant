@@ -24,6 +24,7 @@ import isoquant.plugins.plgs.PLGSProjectInfoViewer;
 import isoquant.plugins.plgs.importing.ProjectImporterByExpressionAnalysis;
 import isoquant.plugins.plgs.importing.ProjectImporterByExpressionAnalysisAndBlusterResultsImporter;
 import isoquant.plugins.plgs.importing.ProjectImporterByUserDesignMulti;
+import isoquant.plugins.plgs.plain.PlainPLGSDataImporter;
 import isoquant.plugins.processing.annotation.AnnotationStatisticsCreator;
 import isoquant.plugins.processing.annotation.EMRTClusterAnnotator;
 import isoquant.plugins.processing.annotation.PeptideIdentificationFilter;
@@ -75,6 +76,7 @@ public class Defaults
 		PluginManager.defaultPlugins = new String[]
 		{
 				PLGSProjectExplorer.class.getName()
+				, PlainPLGSDataImporter.class.getName()
 				, ProjectDBExplorer.class.getName()
 				, ProjectFromFileImporter.class.getName()
 				, ProjectFinder.class.getName()

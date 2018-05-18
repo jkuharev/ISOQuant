@@ -154,16 +154,16 @@ public class PLGSProjectExplorer extends ToolBarPlugin
 			app.getGUI() 
 		);
 		
-    	if( userSelection!=null && userSelection.canRead() )
-    	{
-    		rootDir = userSelection.getAbsoluteFile();
-    		System.out.println("PLGS root folder selected:\n\t" + userSelection.getAbsolutePath());
-    		new Thread(this).start();
-    	}
-    	else
-    	{
-    		System.out.println("PLGS root folder selection cancelled.");
-    	}
+		if (userSelection != null && userSelection.canRead())
+		{
+			rootDir = userSelection.getAbsoluteFile();
+			System.out.println( "PLGS root folder selected:\n\t" + userSelection.getAbsolutePath() );
+			new Thread( this ).start();
+		}
+		else
+		{
+			System.out.println( "PLGS root folder selection cancelled." );
+		}
 	}
 
 	@Override public int getExecutionOrder()
