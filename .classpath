@@ -38,8 +38,9 @@
 	<classpathentry kind="lib" path="lib/jmztab-modular-model-3.0.0.jar"/>
 	<classpathentry kind="lib" path="lib/jmztab-modular-util-3.0.0.jar"/>
 	<classpathentry kind="lib" path="lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="lib/Gravity.jar"/>
+	<classpathentry kind="lib" path="lib/j6.jar"/>
+	<classpathentry kind="lib" path="lib/PLGSDataAccess.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/PLGSDataAccess"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/JSiX"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
