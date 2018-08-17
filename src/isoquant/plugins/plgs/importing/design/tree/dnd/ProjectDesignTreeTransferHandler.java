@@ -1,8 +1,6 @@
 /** ISOQuant, isoquant.plugins.plgs.importing.design.tree.dnd, 07.04.2011*/
 package isoquant.plugins.plgs.importing.design.tree.dnd;
 
-import isoquant.plugins.plgs.importing.design.ProjectDesignPanel;
-
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 
@@ -21,11 +19,6 @@ public class ProjectDesignTreeTransferHandler extends TransferHandler implements
 {
 	private static final long serialVersionUID = 20110407L;
 
-	public static void main(String[] args) throws Exception
-	{
-		ProjectDesignPanel.main(args);
-	}
-	
 	JTree tree;
 	String cmd="";
 

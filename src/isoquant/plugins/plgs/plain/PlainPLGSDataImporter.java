@@ -47,6 +47,11 @@ public class PlainPLGSDataImporter extends ToolBarPlugin implements iProjectImpo
 	private JButton btnOk = new JXButton( ResourceLoader.getIcon( "small_play" ), "proceed", "accept and proceed" );
 	private JButton btnCancel = new JXButton( ResourceLoader.getIcon( "small_stop" ), "cancel", "cancel" );
 	private JButton btnSettings = new JXButton( ResourceLoader.getIcon( "small_options" ), "config", "edit configuration" );
+	private JButton btnMulti = new JXButton( ResourceLoader.getIcon( "small_clone" ), "split", "create an additional tab from this input project" );
+	private List<DBProject> originalProjects = null;
+	private List<DBProject> selectedProjects = null;
+	private Thread thread = null;
+	private List<ProjectDesignPanel> designPanelTabs = null;
 
 	/**
 	 * @param app
@@ -81,6 +86,7 @@ public class PlainPLGSDataImporter extends ToolBarPlugin implements iProjectImpo
 		JPanel pnlSettings = new JPanel( new FlowLayout( FlowLayout.LEFT ) );
 		JPanel pnlOkCancel = new JPanel( new FlowLayout( FlowLayout.RIGHT ) );
 		pnlSettings.add( btnSettings );
+		pnlSettings.add( btnMulti );
 		pnlOkCancel.add( btnCancel );
 		pnlOkCancel.add( btnOk );
 		btnPane.add( pnlSettings, BorderLayout.WEST );
@@ -91,6 +97,7 @@ public class PlainPLGSDataImporter extends ToolBarPlugin implements iProjectImpo
 		btnOk.addActionListener( this );
 		btnCancel.addActionListener( this );
 		btnSettings.addActionListener( this );
+		btnMulti.addActionListener( this );
 		dlgWin.setContentPane( mainPane );
 		dlgWin.setSize( app.getGUI().getWidth(), app.getGUI().getHeight() );
 		dlgWin.setLocationRelativeTo( app.getGUI() );
@@ -164,7 +171,7 @@ public class PlainPLGSDataImporter extends ToolBarPlugin implements iProjectImpo
 		Object src = e.getSource();
 		if (src.equals( btnOk ))
 		{
-			System.out.println( "evaluating designed projects ..." );
+			System.out.println( "evaluating designed project ..." );
 			// evaluateSelection();
 		}
 		else if (src.equals( btnCancel ))
@@ -177,9 +184,40 @@ public class PlainPLGSDataImporter extends ToolBarPlugin implements iProjectImpo
 			System.out.println( "changing settings ..." );
 			new ConfigurationEditor( app ).editModal( dlgWin );
 		}
+		else if (src.equals( btnMulti ))
+		{
+			DBProject prj2clone = originalProjects.get( tabPane.getSelectedIndex() );
+			originalProjects.add( prj2clone );
+			showInTab( prj2clone );
+		}
 		else
 		{
 			super.actionPerformed( e );
+		}
+	}
+
+	/**
+	 * add a new project designer tab
+	 */
+	private void showInTab(DBProject p)
+	{
+		try
+		{
+			System.out.println( "reading details for project '" + p.data.title + "' from file system ..." );
+			ProjectDesignPanel pdp = new ProjectDesignPanel( p );
+			JPanel pnl = new JPanel();
+			pnl.setLayout( new BorderLayout() );
+			pnl.add( pdp, BorderLayout.CENTER );
+			pnl.setBorder( BorderFactory.createEtchedBorder() );
+			pnl.add(
+					new JLabel( "<html>use drag and drop and right mouse button to redefine the project <b>'" + p.data.title + "'</b><br></html>" ),
+					BorderLayout.NORTH );
+			tabPane.addTab( p.data.title, pnl );
+			designPanelTabs.add( pdp );
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
 		}
 	}
 
@@ -207,7 +245,10 @@ public class PlainPLGSDataImporter extends ToolBarPlugin implements iProjectImpo
 	}
 
 	@Override public void importProjects(List<DBProject> projects)
-	{}
+	{
+		// nothing to do here
+		// as we are not importing from a list of projects
+	}
 
 	@Override public List<DBProject> getImportedProjects()
 	{

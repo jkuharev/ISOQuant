@@ -1,9 +1,6 @@
 /** ISOQuant_1.0, isoquant.plugins.plgs.importing.design.tree.model, 04.04.2011 */
 package isoquant.plugins.plgs.importing.design.tree.dnd;
 
-import isoquant.plugins.plgs.importing.design.ProjectDesignPanel;
-import isoquant.plugins.plgs.importing.design.tree.model.ProjectDesignTreeModel;
-
 import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetAdapter;
 import java.awt.dnd.DropTargetDropEvent;
@@ -12,6 +9,8 @@ import javax.swing.JTree;
 import javax.swing.TransferHandler;
 import javax.swing.tree.TreePath;
 
+import isoquant.plugins.plgs.importing.design.tree.model.ProjectDesignTreeModel;
+
 /**
  * <h3>{@link ProjectDesignDualTreeDragAndDropHandler}</h3>
  * @author Joerg Kuharev
@@ -19,11 +18,7 @@ import javax.swing.tree.TreePath;
  */
 public class ProjectDesignDualTreeDragAndDropHandler extends DropTargetAdapter
 {
-	public static void main(String[] args) throws Exception
-	{
-		ProjectDesignPanel.main(args);
-	}
-	
+
 	private JTree tarTree = null;
 	private JTree srcTree = null;
 	

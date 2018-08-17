@@ -20,7 +20,7 @@ import de.mz.jk.plgs.data.Workflow;
  */
 public class ProjectDesignTreeSelectionListener implements TreeSelectionListener
 {
-	public static final boolean DEBUG = false;
+	public static boolean DEBUG = false;
 
 	@Override public void valueChanged( TreeSelectionEvent e )
 	{

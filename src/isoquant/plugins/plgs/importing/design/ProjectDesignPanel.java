@@ -34,21 +34,6 @@ public class ProjectDesignPanel extends JPanel implements ComponentListener, Act
 {
 	private static final long serialVersionUID = 20110324L;
 
-	public static void main(String[] args) throws Exception
-	{
-// String runPath =
-// "/Volumes/RAID0/PLGS2.4/root/Proj__12514907738010_21391414877363146/_12514908018190_15061650301830354/";
-		String prjPath = "/Volumes/DAT/2013-04 Human Yeast Ecoli 1P FDR/Proj__13966189271230_9093339492956815/";
-		File prjDir = new File(prjPath);
-		File prjFile = new File( prjDir.getAbsolutePath() + File.separator + "Project.xml" );
-		DBProject p = new DBProject( ProjectReader.getProject( prjFile, false ) );
-		JFrame win = new JFrame();
-		win.setSize(640, 480);
-		win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		ProjectDesignPanel pdp = new ProjectDesignPanel(p);
-		win.add(pdp);
-		win.setVisible(true);
-	}
 	private DBProject plgsPrj = null;
 	private DBProject iqPrj = null;
 	private JSplitPane splitPane = new JSplitPane();
