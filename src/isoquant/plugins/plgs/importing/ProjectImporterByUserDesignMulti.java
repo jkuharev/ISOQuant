@@ -110,7 +110,7 @@ public class ProjectImporterByUserDesignMulti extends SingleActionPlugin4FS impl
 		{
 			tabPane.remove(0);
 		}
-		//
+		// fill GUI with tabs for each project
 		for (int i = 0; i < originalProjects.size(); i++)
 		{
 			showInTab(originalProjects.get(i));
@@ -120,7 +120,7 @@ public class ProjectImporterByUserDesignMulti extends SingleActionPlugin4FS impl
 	}
 
 	/**
-	 * @param p
+	 * add GUI Tab for designing this project
 	 */
 	private void showInTab(DBProject p)
 	{
@@ -161,6 +161,7 @@ public class ProjectImporterByUserDesignMulti extends SingleActionPlugin4FS impl
 		}
 		dlgWin.setVisible(false);
 		thread.start();
+		System.out.println();
 	}
 
 	@Override public void runPluginAction() throws Exception
@@ -209,6 +210,7 @@ public class ProjectImporterByUserDesignMulti extends SingleActionPlugin4FS impl
 		}
 		else if (src.equals(btnMulti))
 		{
+			// add an additional tab for the same selected project
 			DBProject prj2clone = originalProjects.get(tabPane.getSelectedIndex());
 			originalProjects.add(prj2clone);
 			showInTab(prj2clone);
@@ -228,6 +230,7 @@ public class ProjectImporterByUserDesignMulti extends SingleActionPlugin4FS impl
 		return selectedProjects;
 	}
 
+	// init project list by user selected projects
 	@Override public void importProjects(List<DBProject> projects)
 	{
 		originalProjects = projects;

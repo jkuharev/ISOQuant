@@ -147,6 +147,7 @@ public class ProjectDesignPanel extends JPanel implements ComponentListener, Act
 						int i = 1;
 						for (Workflow w : s.workflows)
 						{
+							// why do we rename the run?
 							w.replicate_name = s.name + " " + i++;
 						}
 					}

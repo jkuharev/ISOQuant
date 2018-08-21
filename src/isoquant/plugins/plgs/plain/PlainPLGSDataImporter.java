@@ -7,6 +7,7 @@ import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.*;
@@ -24,6 +25,7 @@ import isoquant.kernel.db.DBProject;
 import isoquant.kernel.plugin.ToolBarPlugin;
 import isoquant.plugins.configuration.ConfigurationEditor;
 import isoquant.plugins.plgs.importing.design.ProjectDesignPanel;
+import isoquant.plugins.plgs.importing.importer.ProjectImportingThread;
 
 /**
  * <h3>{@link PlainPLGSDataImporter}</h3>
@@ -105,6 +107,7 @@ public class PlainPLGSDataImporter extends ToolBarPlugin implements iProjectImpo
 
 	@Override public void runPluginAction() throws Exception
 	{
+		// we are here on toolbar button pressed event
 		loadSettings();
 		iProjectManager pm = app.getProjectManager();
 
@@ -127,17 +130,35 @@ public class PlainPLGSDataImporter extends ToolBarPlugin implements iProjectImpo
 		DBProject p = new DBProject( plainProject );
 		p.data.db = pm.getNextSchemaNameForPrefix( pm.suggestSchemaNamePrefix( p.data.id, "" ) );
 
-		ProjectDesignPanel pdp = new ProjectDesignPanel( p, false );
-		JPanel pnl = new JPanel();
-		pnl.setLayout( new BorderLayout() );
-		pnl.add( pdp, BorderLayout.CENTER );
-		pnl.setBorder( BorderFactory.createEtchedBorder() );
-		pnl.add(
-				new JLabel( "<html>use drag and drop and right mouse button to redefine the project <b>'" + p.data.title + "'</b><br></html>" ),
-				BorderLayout.NORTH );
-		tabPane.addTab( p.data.title, pnl );
+		// we only have a singe project in a CSV file
+		originalProjects = new ArrayList<>();
+		originalProjects.add( p );
 
+		runSelection();
+	}
+
+	private void runSelection()
+	{
+		if (app.getProjectManager() == null)
+		{
+			app.showErrorMessage( "please connect to the database before trying to import projects!" );
+			return;
+		}
+		app.getProcessProgressListener().startProgress( "reading project details" );
+		selectedProjects = new ArrayList<DBProject>();
+		designPanelTabs = new ArrayList<ProjectDesignPanel>();
+		// remove old tabs
+		while (tabPane.getTabCount() > 0)
+		{
+			tabPane.remove( 0 );
+		}
+		// fill GUI with tabs for each project
+		for ( int i = 0; i < originalProjects.size(); i++ )
+		{
+			showInTab( originalProjects.get( i ) );
+		}
 		dlgWin.setVisible( true );
+		// app.getProcessProgressListener().endProgress();
 	}
 
 	/**
@@ -172,7 +193,8 @@ public class PlainPLGSDataImporter extends ToolBarPlugin implements iProjectImpo
 		if (src.equals( btnOk ))
 		{
 			System.out.println( "evaluating designed project ..." );
-			// evaluateSelection();
+			evaluateSelection();
+			importUserDesignedProjects();
 		}
 		else if (src.equals( btnCancel ))
 		{
@@ -204,7 +226,7 @@ public class PlainPLGSDataImporter extends ToolBarPlugin implements iProjectImpo
 		try
 		{
 			System.out.println( "reading details for project '" + p.data.title + "' from file system ..." );
-			ProjectDesignPanel pdp = new ProjectDesignPanel( p );
+			ProjectDesignPanel pdp = new ProjectDesignPanel( p, false );
 			JPanel pnl = new JPanel();
 			pnl.setLayout( new BorderLayout() );
 			pnl.add( pdp, BorderLayout.CENTER );
@@ -244,15 +266,17 @@ public class PlainPLGSDataImporter extends ToolBarPlugin implements iProjectImpo
 		return "open_project_csv";
 	}
 
+	// init project list by user selected projects
 	@Override public void importProjects(List<DBProject> projects)
 	{
+		// originalProjects = projects;
 		// nothing to do here
 		// as we are not importing from a list of projects
 	}
 
 	@Override public List<DBProject> getImportedProjects()
 	{
-		return null;
+		return selectedProjects;
 	}
 
 	private void cancelSelection()
@@ -261,5 +285,29 @@ public class PlainPLGSDataImporter extends ToolBarPlugin implements iProjectImpo
 		System.out.println( "project design cancelled by user interaction." );
 		// selectedProjects = new ArrayList<DBProject>();
 		// thread.start();
+	}
+
+	private void evaluateSelection()
+	{
+		for ( ProjectDesignPanel tab : designPanelTabs )
+		{
+			DBProject selectedProject = tab.getDesignedProject();
+			selectedProjects.add( selectedProject );
+		}
+		dlgWin.setVisible( false );
+	}
+
+	/**
+	 * 
+	 */
+	private void importUserDesignedProjects()
+	{
+		if(selectedProjects.size()<1) return;
+		for ( DBProject p : selectedProjects )
+		{
+			ProjectImportingThread importerThread = new ProjectImportingThread( getMainApp(), p );
+			importerThread.run();
+			// importerThread.join();
+		}
 	}
 }
