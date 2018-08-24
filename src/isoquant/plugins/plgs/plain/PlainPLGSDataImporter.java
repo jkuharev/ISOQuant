@@ -306,8 +306,13 @@ public class PlainPLGSDataImporter extends ToolBarPlugin implements iProjectImpo
 		for ( DBProject p : selectedProjects )
 		{
 			ProjectImportingThread importerThread = new ProjectImportingThread( getMainApp(), p );
-			importerThread.run();
-			// importerThread.join();
+			importerThread.start();
+			try
+			{
+				importerThread.join();
+			}
+			catch (Exception e)
+			{}
 		}
 	}
 }

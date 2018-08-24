@@ -1,6 +1,5 @@
 package isoquant.plugins.plgs.plain;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -11,7 +10,6 @@ import de.mz.jk.jsix.libs.XJava;
 import de.mz.jk.plgs.data.Project;
 import de.mz.jk.plgs.data.Sample;
 import de.mz.jk.plgs.data.Workflow;
-import de.mz.jk.plgs.reader.WorkflowReader;
 
 /** ISOQuantPlainPLGSImportPlugin, , Mar 29, 2018*/
 /**
@@ -54,6 +52,7 @@ public class PlainPLGSDataProjectCreator
 		prj.title = rootFolder.getName();
 		prj.root = rootFolder.getParentFile().getAbsolutePath();
 		prj.id = XJava.encURL( prj.title );
+		prj.projectFilePath = csvFile.getAbsolutePath();
 
 		Map<String, Sample> spls = new TreeMap<String, Sample>();
 		Iterator<String[]> csvData = csv.getData().iterator();
@@ -75,24 +74,31 @@ public class PlainPLGSDataProjectCreator
 			Sample spl = spls.get( sampleDesc );
 
 			Workflow run = null;
-			File xmlFile = new File( workflowXML ).getAbsoluteFile();
-			if (!xmlFile.exists()) xmlFile = new File( csvFile.getParentFile(), workflowXML );
-			try
-			{
-				if (!xmlFile.exists()) throw new FileNotFoundException( "could not find xml file!" );
-				run = WorkflowReader.getWorkflow( xmlFile, false );
-			}
-			catch (Exception e)
-			{
-				System.err.println( e.getMessage() );
-				System.err.println( "file path: " + workflowXML );
-				System.out.println( "root folder: " + csvFile.getParentFile().toString() );
-				run = new Workflow();
-				run.acquired_name = acquiredName;
-				run.sample_description = sampleDesc;
-				run.xmlFilePath = workflowXML;
-				run.id = XJava.timeStamp();
-			}
+
+			File workflowXmlFile = new File( workflowXML ).getAbsoluteFile();
+			if (!workflowXmlFile.exists())
+				workflowXmlFile = new File( csvFile.getParentFile(), workflowXML );
+			File massSpectrumXmlFile = new File( peptide3dXML ).getAbsoluteFile();
+			if (!massSpectrumXmlFile.exists())
+				massSpectrumXmlFile = new File( csvFile.getParentFile(), peptide3dXML );
+// try
+// {
+// if (!xmlFile.exists()) throw new FileNotFoundException( "could not find xml
+// file!" );
+// run = WorkflowReader.getWorkflow( xmlFile, false );
+// }
+// catch (Exception e)
+// {
+// System.err.println( e.getMessage() );
+// System.err.println( "file path: " + workflowXML );
+// System.out.println( "root folder: " + csvFile.getParentFile().toString() );
+// }
+			run = new Workflow();
+			run.id = XJava.timeStamp();
+			run.acquired_name = acquiredName;
+			run.sample_description = sampleDesc;
+			run.workflowXMLFilePath = workflowXmlFile.getAbsolutePath();
+			run.massSpectrumXMLFilePath = massSpectrumXmlFile.getAbsolutePath();
 
 			System.out.println( "  adding run '" + acquiredName + "' ..." );
 			spl.workflows.add( run );

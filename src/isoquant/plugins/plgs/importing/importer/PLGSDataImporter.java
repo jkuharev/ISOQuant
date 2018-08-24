@@ -295,7 +295,9 @@ public class PLGSDataImporter
 	 */
 	private void importWorkflow(Workflow w) throws Exception 
 	{
-		WorkflowReader.readWorkflow( prj.data, w );
+		w.checkXMLFilePaths( prj.data );
+		WorkflowReader.readWorkflow( w );
+
 		w.index = db.getNextWorkflowIndex();
 		db.storeWorkflow( w );
 		db.storeWorkflowMetaData( w.index, "Workflow", w.metaInfo );
@@ -328,7 +330,11 @@ public class PLGSDataImporter
 		IMassSpectrumReader msr = w.acquisitionMode.equals( Workflow.AcquisitionMode.DDA )
 				? new DDAMassSpectrumReader()
 				: new DIAMassSpectrumReader();
-		msr.openMassSpectrum( prj.data.getProjectDirectoryPath(), w.sample_tracking_id );
+		
+		w.checkXMLFilePaths( prj.data );
+
+		msr.openMassSpectrum( w );
+		
 		db.storeWorkflowMetaData( w.index, "MassSpectrum", msr.getMetaInfo() );
 		// db.prepareMassPeak();
 		while( msr.next() )
