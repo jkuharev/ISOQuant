@@ -57,7 +57,7 @@ public class Defaults
 	public final static String VERSION_STATE = "beta";
 	public final static int VERSION_BUILD_YEAR = 2018;
 	public final static int VERSION_BUILD_MONTH = 8;
-	public final static int VERSION_BUILD_DAY = 21;
+	public final static int VERSION_BUILD_DAY = 30;
 	public final static String VERSION_BUILD_DATE =
 			VERSION_BUILD_YEAR
 					+ "-" + (VERSION_BUILD_MONTH < 10 ? "0" : "") + VERSION_BUILD_MONTH

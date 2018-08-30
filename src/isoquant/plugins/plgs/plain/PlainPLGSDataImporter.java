@@ -25,7 +25,7 @@ import isoquant.kernel.db.DBProject;
 import isoquant.kernel.plugin.ToolBarPlugin;
 import isoquant.plugins.configuration.ConfigurationEditor;
 import isoquant.plugins.plgs.importing.design.ProjectDesignPanel;
-import isoquant.plugins.plgs.importing.importer.ProjectImportingThread;
+import isoquant.plugins.plgs.importing.importer.MultiProjectImportingThread;
 
 /**
  * <h3>{@link PlainPLGSDataImporter}</h3>
@@ -303,16 +303,7 @@ public class PlainPLGSDataImporter extends ToolBarPlugin implements iProjectImpo
 	private void importUserDesignedProjects()
 	{
 		if(selectedProjects.size()<1) return;
-		for ( DBProject p : selectedProjects )
-		{
-			ProjectImportingThread importerThread = new ProjectImportingThread( getMainApp(), p );
-			importerThread.start();
-			try
-			{
-				importerThread.join();
-			}
-			catch (Exception e)
-			{}
-		}
+		MultiProjectImportingThread importerThread = new MultiProjectImportingThread( getMainApp(), selectedProjects );
+		importerThread.start();
 	}
 }

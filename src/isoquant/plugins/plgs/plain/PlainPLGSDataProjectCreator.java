@@ -81,20 +81,11 @@ public class PlainPLGSDataProjectCreator
 			File massSpectrumXmlFile = new File( peptide3dXML ).getAbsoluteFile();
 			if (!massSpectrumXmlFile.exists())
 				massSpectrumXmlFile = new File( csvFile.getParentFile(), peptide3dXML );
-// try
-// {
-// if (!xmlFile.exists()) throw new FileNotFoundException( "could not find xml
-// file!" );
-// run = WorkflowReader.getWorkflow( xmlFile, false );
-// }
-// catch (Exception e)
-// {
-// System.err.println( e.getMessage() );
-// System.err.println( "file path: " + workflowXML );
-// System.out.println( "root folder: " + csvFile.getParentFile().toString() );
-// }
+
 			run = new Workflow();
-			run.id = XJava.timeStamp();
+
+			// we use MD5 of the file path as unique identifier in this project
+			run.id = XJava.getMD5( workflowXML );
 			run.acquired_name = acquiredName;
 			run.sample_description = sampleDesc;
 			run.workflowXMLFilePath = workflowXmlFile.getAbsolutePath();
@@ -105,4 +96,5 @@ public class PlainPLGSDataProjectCreator
 		}
 		return prj;
 	}
+
 }

@@ -5,16 +5,16 @@ import isoquant.interfaces.iMainApp;
 import isoquant.kernel.db.DBProject;
 
 /**
- * <h3>{@link ProjectImportingThread}</h3>
+ * <h3>{@link SingleProjectImportingThread}</h3>
  * @author jkuharev
  * @version Aug 21, 2018 2:46:04 PM
  */
-public class ProjectImportingThread extends Thread
+public class SingleProjectImportingThread extends Thread
 {
 	private DBProject project = null;
 	private iMainApp application = null;
 
-	public ProjectImportingThread(iMainApp app, DBProject p)
+	public SingleProjectImportingThread(iMainApp app, DBProject p)
 	{
 		this.application = app;
 		this.project = p;
@@ -25,9 +25,10 @@ public class ProjectImportingThread extends Thread
 		if (project == null || project.data.expressionAnalyses.size() < 1)
 		{
 			System.err.println( "nothing to import." );
-			return;
-		}
-		System.out.println( "importing project: " + project.data.title );
+				return;
+			}
+		application.getProcessProgressListener().startProgress();
+			System.out.println( "importing project: " + project.data.title );
 		try
 		{
 			PLGSDataImporter pim = new PLGSDataImporter();
@@ -41,7 +42,8 @@ public class ProjectImportingThread extends Thread
 		catch (Exception e)
 		{
 			System.err.println( "failed to import project: " + project.data.title );
-			e.printStackTrace();
-		}
+				e.printStackTrace();
+			}
+		application.getProcessProgressListener().endProgress();
 	}
 }

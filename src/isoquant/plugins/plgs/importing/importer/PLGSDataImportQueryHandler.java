@@ -148,7 +148,7 @@ public class PLGSDataImportQueryHandler
 	}
 	public void storeWorkflow( Workflow w ) throws Exception
 	{
-		try{w.index=getWorkflowIndex(w); return;}catch(Exception e){}
+		try{ w.index=getWorkflowIndex(w); return; } catch(Exception e){}
 		db.executeSQL(
 			"INSERT INTO `workflow` SET " +
 			"`index`='"+w.index+"',"+

@@ -297,7 +297,6 @@ public class PLGSDataImporter
 	{
 		w.checkXMLFilePaths( prj.data );
 		WorkflowReader.readWorkflow( w );
-
 		w.index = db.getNextWorkflowIndex();
 		db.storeWorkflow( w );
 		db.storeWorkflowMetaData( w.index, "Workflow", w.metaInfo );
@@ -314,12 +313,16 @@ public class PLGSDataImporter
 		// import order is important!!!
 		// 1: LOW ENERGY
 		importLowEnergy(w);
+		System.out.flush();
 		// 2: QUERY MASS
 		importQueryMass(w);
+		System.out.flush();
 		// 3: PROTEIN
 		importProteins(w);
+		System.out.flush();
 		// 4: PEPTIDE
 		importPeptides(w);
+		System.out.flush();
 		// 5: MASS SPECTRUM
         importMassSpectrum(w);
 		System.out.flush();
